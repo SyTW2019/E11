@@ -6,8 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product/product.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { UserComponent } from './user/user.component';
+import { UserListComponent } from './user/user.component';
 import { AboutComponent } from './about/about.component';
+import { CategoriaComponent } from './categoria/categoria.component';
 
 const routes: Route[] = [
   {path: '', component: AppComponent},
@@ -19,8 +20,9 @@ const routes: Route[] = [
     AppComponent,
     ProductListComponent,
     TopBarComponent,
-    UserComponent,
-    AboutComponent
+    UserListComponent,
+    AboutComponent,
+    CategoriaComponent
     ],
   imports: [
     BrowserModule,
