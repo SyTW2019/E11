@@ -1,13 +1,22 @@
 import { Component, OnInit, Input} from '@angular/core';
 
 class User{
-  nickname: string;
+  id: number;
+  name: string;
+  username: string;
+  password: string;
   email: string;
+  address: string[];
+  phone: string;
 
-
-constructor(nickname: string, email: string){
-  this.nickname = nickname;
+constructor(id: number, name: string, username: string, password: string, email: string, address: string[], phone: string){
+  this.id=id;
+  this.name=name;
+  this.username = username;
+  this.password=password;
   this.email = email;
+  this.address=address;
+  this.phone=phone;
 }
 
 }
@@ -22,7 +31,7 @@ export class UserListComponent implements OnInit {
   users: User[];
   constructor() { 
     this.users = [
-      new User('paco12','paco1234@gmail.com')
+      new User(1234,'paco','paco12','*****','paco1234@gmail.com',['USA','Florida'],'123456789')
     ]
   }
 
