@@ -4,7 +4,7 @@ import {RouterModule,Route} from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule} from  '@angular/material';
 import { MatMenuModule} from '@angular/material/menu';
-
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,10 +14,11 @@ import { UserListComponent } from './user/user.component';
 import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Route[] = [
   {path: '', component: TopBarComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: FormComponent}
 ];
 
 @NgModule({
@@ -27,7 +28,8 @@ const routes: Route[] = [
     UserListComponent,
     MenuComponent,
     LoginComponent,
-    TopBarComponent
+    TopBarComponent,
+    FormComponent
     ],
   imports: [
     BrowserModule,
@@ -39,7 +41,9 @@ const routes: Route[] = [
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
