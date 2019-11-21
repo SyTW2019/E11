@@ -122,12 +122,13 @@
                     La longitud mínima es 8.
                 </div>
               </div>
-         
+              <button
+              class="btn btn-success btn-block"
+              [class.disabled]="SignUpForm.invalid"
+              type="submit" onEvent="onSignUp()">
+              Iniciar sesión
+             </button>
     </form>
-    <button
-                   class="btn btn-success btn-block"
-                   type="submit">
-                   Iniciar Sesión
-                  </button>
+   
    </div>
   </div>
