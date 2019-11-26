@@ -1,0 +1,41 @@
+<app-menu></app-menu> 
+<div class="my-form-container">
+<a [routerLink]="['/signup']" class="button fancy-button" [class.active]="viewPage=='signUp'"  (click)="changePage('signUp')">Registrarse</a>
+<a [routerLink]="['/']" class="button fancy-button">Volver</a>
+<div class="my-form"  *ngIf="viewPage=='logIn'" >
+    <form [formGroup]='logInForm' (ngSubmit)="onLogIn()" >
+        <div class="form-group">
+            <input class='form-control'
+                  type="text"
+                  formControlName='logEmail'
+                  placeholder="Escriba el correo electrónico">
+          </div>
+          <div *ngIf="logEmail.touched && logEmail.invalid" class="alert alert-danger">
+    
+              <div *ngIf="logEmail.errors.required">
+                  El correo es obligatorio.
+              </div>
+              <div *ngIf="logEmail.errors.email">
+                 El formato deber ser correoelectrónico@ejemplo.com.
+              </div>
+            </div>
+          <div class="form-group">
+             <input class='form-control'
+                    type="password"
+                    formControlName='logPassword'
+                    placeholder="Escriba la contraseña">
+            </div>
+            <div *ngIf="logPassword.touched && logPassword.invalid" class="alert alert-danger">
+    
+                <div *ngIf="logPassword.errors.required">
+                   La contraseña es obligatoria.
+                </div>
+                <div *ngIf="logPassword.errors.minlength">
+                    La longitud mínima es 8.
+                </div>
+              </div>
+              <a [routerLink]="['/user']" class="button blue-button">Iniciar Sesión</a>
+
+    </form>
+   </div>
+</div>

@@ -1,0 +1,14 @@
+.nav-link {
+    border: 2px #007bff solid;}
+.my-form-container{
+    width: 80%; 
+    margin: 30px auto; 
+}
+.my-form{
+width: 90%;
+margin: 30px auto;
+padding: 10px;
+border: 2px #007bff solid;
+border-top: #fff;
+border-radius: 5px;
+}

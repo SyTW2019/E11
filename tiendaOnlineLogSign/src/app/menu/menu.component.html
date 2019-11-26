@@ -1,0 +1,44 @@
+
+<a [routerLink]="['/']">
+    <h1>TOnline</h1>
+  </a>
+  
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="button fancy-button" aria-label="Example icon-button with a menu">
+    <mat-icon>reorder</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>laptop</mat-icon>
+      <span>Ordenadores</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>phone_iphone</mat-icon>
+      <span>Smartphones/Telefonía</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>camera_alt</mat-icon>
+      <span>Audio/Foto/Vídeo</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>mouse</mat-icon>
+        <span>Periféricos</span>
+      </button>
+    <button mat-menu-item>
+      <mat-icon>tv</mat-icon>
+      <span>Televisores</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>tablet_mac</mat-icon>
+        <span>Tablets/Ebooks</span>
+      </button>
+  </mat-menu>
+
+    <input matInput class="example.container" placeholder="Búsqueda">
+
+  <a [routerLink]="['/favoritos']" class="button fancy-button"><i class="material-icons">language</i>Idioma</a>
+
+  <a [routerLink]="['/login']" class="button fancy-button"><i class="material-icons">account_circle</i>Entra o regístrate</a>
+
+  <a [routerLink]="['/favoritos']" class="button fancy-button"><i class="material-icons">favorite</i>Lista de favoritos</a>
+
+  <a [routerLink]="['/cart']" class="button fancy-button"><i class="material-icons">shopping_cart</i>Carrito</a>
