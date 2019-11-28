@@ -1,4 +1,10 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import {v4 as uuid } from 'uuid';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 class Product{
   id: string;
@@ -32,18 +38,44 @@ class Product{
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
+
+@Injectable({
+  providedIn: 'root'
+})
+
 export class ProductListComponent{
-  
+
   products: Product[];
 
-  constructor(){
+  constructor(private httpClient: HttpClient){
     this.products = [
       new Product('1','Phone XL','Apple','phone','A large phone with one of the best screens',799,10,1,false),
       new Product('2','Phone Mini','Apple','phone','A great phone with one of the best cameras',699,10,1,false),
       new Product('3','Phone Standard','Apple','phone','A large phone but cheaper',299,10,1,false)
-    ]
+    ];
   }
 
- 
+
+    configUrl = 'http://10.6.129.113:8080' ;
+    config: any;
+
+public sendGetRequest() {
+  return this.httpClient.get(this.configUrl);
 
 }
+
+buy() {
+
+//PARA ACCEDER UTILIZAR data[POSICION DEL ELEMENTO EN LA LISTA].DATO_QUE_SE_QUIERE_OBTENER
+
+  this.sendGetRequest().subscribe((data: any[])=> {
+    alert(JSON.stringify(data[0].name));
+    //AQUI EL PRIMERO ELEMENTO ES USUARIO AKSHAY Y OBTENGO EL NOMBRE DE AHI
+  });
+
+}
+  }
+
+
+
+
