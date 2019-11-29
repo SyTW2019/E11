@@ -12,7 +12,6 @@ export class HomeComponent {
     constructor(private userService: UserService) { }
 
     ngOnInit() {
-				alert("rrrrr")
         this.loading = true;
         this.userService.getAll().pipe(first()).subscribe(users => {
             this.loading = false;

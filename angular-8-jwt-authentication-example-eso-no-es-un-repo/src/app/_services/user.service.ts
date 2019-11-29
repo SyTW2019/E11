@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from '@environments/environment';
 import { User } from '@app/_models';
+import {Observable, of} from 'rxjs'
 
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
     constructor(private http: HttpClient) { }
-		users;
+		users:User[]=[];
+		usuario;
 		i=0;
 
 		public sendGetRequest() {
@@ -16,16 +18,14 @@ export class UserService {
 
 		}
 
-    getAll() {
+    getAll():Observable<User[]> {
 			this.sendGetRequest().subscribe((data: any[])=> {
-		    alert(JSON.stringify(data[0].password));
 				for(let entry of data){
-					this.users[this.i]=new User(JSON.stringify(entry.firstName),JSON.stringify(entry.lastName))
+					this.usuario =new User(entry.firstName,entry.lastName)
+					this.users[this.i]=this.usuario
 					this.i++;
 				}
-				//AQUI EL PRIMERO ELEMENTO ES USUARIO AKSHAY Y OBTENGO EL NOMBRE DE AHI
 			});
-			return this.users;
-        //return this.http.get<User[]>(`${environment.apiUrl}/users`);
+			return of(this.users); //trasformarlo en un observable con 'of' porque el pipe en el HomeComponent necesita un observable
     }
 }
