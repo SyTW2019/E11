@@ -8,9 +8,10 @@ cache:
   directories:
     - ./tiendaOnlineLogMen/node_modules
 
+before_install: cd tiendaOnlineLogMen
+
 install:
   - npm install
 
 script:
-  - cd tiendaOnlineLogMen
   - npm run test
