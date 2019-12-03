@@ -63,7 +63,7 @@ constructor(private store: Store<AppState>, private httpClient: HttpClient) {
 }
 
 
-configUrl = 'http://10.6.129.113:8080' ;
+configUrl = 'http://10.6.129.113:8080/users' ;
 config: any;
 
 public sendGetRequest() {
@@ -76,7 +76,7 @@ buy() {
 //PARA ACCEDER UTILIZAR data[POSICION DEL ELEMENTO EN LA LISTA].DATO_QUE_SE_QUIERE_OBTENER
 
   this.sendGetRequest().subscribe((data: any[])=> {
-    alert(JSON.stringify(data[0].name));
+    alert(JSON.stringify(data[0].firstName));
     //AQUI EL PRIMERO ELEMENTO ES USUARIO AKSHAY Y OBTENGO EL NOMBRE DE AHI
   });
 
