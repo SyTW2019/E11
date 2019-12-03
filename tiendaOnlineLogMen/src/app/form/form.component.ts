@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl,Validator, Validators} from '@angular/forms'
+
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent {
+export class FormComponent  {
+
 SignUpForm = new FormGroup(
   {
     firstName: new FormControl('',[
@@ -43,10 +45,10 @@ public get password() {
 }
 onSignUp(){
   console.log(this.SignUpForm.value);
-  alert("First Name : " + this.SignUpForm.value.firstName + 
+  alert("First Name : " + this.SignUpForm.value.firstName +
          "\nSecond Name : " +this.SignUpForm.value.secondName +
-         "\nEamil : " + this.SignUpForm.value.email + 
-         "\nPassword : " + this.SignUpForm.value.password + 
+         "\nEamil : " + this.SignUpForm.value.email +
+         "\nPassword : " + this.SignUpForm.value.password +
          "\nRead Privacy : " + this.SignUpForm.value.readPrivacy);
 }
 
@@ -72,7 +74,7 @@ public get logEmail() {
 }
 onLogIn(){
   console.log(this.logInForm.value);
-  alert("Eamil : " + this.logInForm.value.logEmail + 
+  alert("Eamil : " + this.logInForm.value.logEmail +
           "\nPassword : " +this.logInForm.value.logPassword );
 }
 
@@ -83,5 +85,5 @@ onLogIn(){
   this.viewPage = page;
  }
 
-  
+
 }

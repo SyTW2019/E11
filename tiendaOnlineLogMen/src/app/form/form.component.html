@@ -1,23 +1,23 @@
 <div class="my-form-container">
-   
+
         <a class="button fancy-button" [class.active]="viewPage=='logIn'" (click)="changePage('logIn')">Iniciar Sesión</a>
         <a class="button fancy-button" [class.active]="viewPage=='signUp'"  (click)="changePage('signUp')">Registrarse</a>
       <a [routerLink]="['/']" class="button fancy-button">Volver</a>
-  
+
   <div class="my-form"  *ngIf="viewPage=='signUp'">
       <form [formGroup] = 'SignUpForm' (ngSubmit)="onSignUp()">
           <div class="form-group">
             <div class="row">
               <div class="col">
                 <input formControlName="firstName"
-                      class="form-control col" 
-                      type="text" 
+                      class="form-control col"
+                      type="text"
                       placeholder="Nombre">
               </div>
               <div class="col">
                     <input formControlName="secondName"
                           class="form-control col"
-                            type="text" 
+                            type="text"
                             placeholder="Apellido">
               </div>
             </div>
@@ -28,10 +28,10 @@
               <div *ngIf="firstName.errors.minlength">
                   La mínima longitud del nombre es 3.
               </div>
-      
+
             </div>
             <div *ngIf="secondName.touched && secondName.invalid" class="alert alert-danger">
-    
+
                 <div *ngIf="secondName.errors.required">
                     El apellido es obligatorio.
                 </div>
@@ -39,17 +39,17 @@
                     La mínima longitud del apellido es 3.
                 </div>
               </div>
-       
+
           </div>
-   
+
           <div class="form-group">
             <input formControlName="email"
-                type='email' 
-                 class='form-control' 
+                type='email'
+                 class='form-control'
                  placeholder='correoelectrónico@ejemplo.com'>
         </div>
         <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
-    
+
             <div *ngIf="email.errors.required">
                 El correo electrónico es obligatorio.
             </div>
@@ -59,12 +59,12 @@
         </div>
           <div class="form-group">
               <input formControlName="password"
-                     type='password' 
-                     class='form-control' 
+                     type='password'
+                     class='form-control'
                      placeholder='Escriba la contraseña'>
           </div>
           <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
-      
+
               <div *ngIf="password.errors.required">
                   La contraseña es obligatoria.
               </div>
@@ -73,13 +73,13 @@
               </div>
           </div>
             <div class="form-group form-check">
-                <input type="checkbox" 
+                <input type="checkbox"
                         class="form-check-input"
-                        formControlName="readPrivacy" 
+                        formControlName="readPrivacy"
                         id="exampleCheck1">
-                <label class="form-check-label" 
+                <label class="form-check-label"
                        for="exampleCheck1">
-                       He leído y acepto los términos y condiciones. 
+                       He leído y acepto los términos y condiciones.
                     </label>
               </div>
            <button
@@ -99,7 +99,7 @@
                   placeholder="Escriba el correo electrónico">
           </div>
           <div *ngIf="logEmail.touched && logEmail.invalid" class="alert alert-danger">
-    
+
               <div *ngIf="logEmail.errors.required">
                   El correo es obligatorio.
               </div>
@@ -114,7 +114,7 @@
                     placeholder="Escriba la contraseña">
             </div>
             <div *ngIf="logPassword.touched && logPassword.invalid" class="alert alert-danger">
-    
+
                 <div *ngIf="logPassword.errors.required">
                    La contraseña es obligatoria.
                 </div>
@@ -127,8 +127,14 @@
               [class.disabled]="SignUpForm.invalid"
               type="submit" onEvent="onSignUp()">
               Iniciar sesión
+
              </button>
+
+
+
     </form>
-   
+
+
+
    </div>
   </div>
