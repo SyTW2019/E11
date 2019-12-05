@@ -5,9 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule} from  '@angular/material';
 import { MatMenuModule} from '@angular/material/menu';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
-
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product/product.component';
@@ -15,9 +13,11 @@ import { UserListComponent } from './user/user.component';
 import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { StoreModule } from '@ngrx/store';
+import { ShoppingReducer } from './store/reducers/shopping-reducer';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
-import { DataServiceService } from './data-service.service';
 import { SigninComponent } from './signup/signin.component';
+
 
 const routes: Route[] = [
   {path: '', component: TopBarComponent},
@@ -34,11 +34,13 @@ const routes: Route[] = [
     MenuComponent,
     LoginComponent,
     TopBarComponent,
+    LoginComponent,
     PerfilUsuarioComponent,
     SigninComponent,
     ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
     MatToolbarModule,
@@ -50,10 +52,11 @@ const routes: Route[] = [
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    MDBBootstrapModule.forRoot()
+    StoreModule.forRoot({
+      shopping: ShoppingReducer,
+    })
   ],
-  providers: [DataServiceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

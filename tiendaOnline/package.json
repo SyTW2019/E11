@@ -21,10 +21,9 @@
     "@angular/platform-browser": "~8.2.13",
     "@angular/platform-browser-dynamic": "~8.2.13",
     "@angular/router": "~8.2.13",
-    "angular-bootstrap-md": "^8.7.0",
-    "mongodb": "^3.3.4",
-    "mongoose": "^5.7.12",
-    "morgan": "^1.9.1",
+    "@ngrx/store": "^8.5.2",
+    "@types/jquery": "^3.3.31",
+    "mongodb": "^3.3.5",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

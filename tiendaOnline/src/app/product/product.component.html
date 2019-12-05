@@ -1,4 +1,7 @@
 <h2>Productos</h2>
+<button (click)="buy()">
+  PROBAR MONGO
+</button>
 
 <div *ngFor="let product of products">
 
@@ -12,8 +15,17 @@
     Description: {{ product.description }}
   </p>
 
-  <button (click)="product.buy()">
+  <button (click)="addItem( product.name )">
     Comprar
   </button>
 
 </div>
+
+
+  <h2>Shopping list</h2>
+    <li *ngFor="let shopping of shoppingItems$ | async"  >
+
+      {{ shopping.name }}
+
+    </li>
+

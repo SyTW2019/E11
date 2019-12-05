@@ -1,7 +1,7 @@
 var MongoClient = require('mongodb').MongoClient;
 var datos=[];
 // Connect to the db
-MongoClient.connect("mongodb://10.6.129.235:27017/tienda", function (err, db) {
+MongoClient.connect("mongodb://10.6.129.235:27017/tienda", { useUnifiedTopology: true } , function (err, db) {
     
     db.collection('users', function (err, collection) {
         
