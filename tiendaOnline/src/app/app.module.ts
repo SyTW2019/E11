@@ -18,7 +18,6 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { DataServiceService } from './data-service.service';
 import { SigninComponent } from './signup/signin.component';
-import { InComponent } from './in/in.component';
 
 const routes: Route[] = [
   {path: '', component: TopBarComponent},
@@ -37,7 +36,6 @@ const routes: Route[] = [
     TopBarComponent,
     PerfilUsuarioComponent,
     SigninComponent,
-    InComponent
     ],
   imports: [
     BrowserModule,
