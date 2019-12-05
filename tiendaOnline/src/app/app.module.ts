@@ -7,7 +7,7 @@ import { MatMenuModule} from '@angular/material/menu';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product/product.component';
@@ -18,6 +18,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { DataServiceService } from './data-service.service';
 import { SigninComponent } from './signup/signin.component';
+import { InComponent } from './in/in.component';
 
 const routes: Route[] = [
   {path: '', component: TopBarComponent},
@@ -35,7 +36,8 @@ const routes: Route[] = [
     LoginComponent,
     TopBarComponent,
     PerfilUsuarioComponent,
-    SigninComponent
+    SigninComponent,
+    InComponent
     ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ const routes: Route[] = [
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [DataServiceService],
   bootstrap: [AppComponent]
