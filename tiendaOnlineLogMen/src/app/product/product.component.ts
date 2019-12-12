@@ -71,7 +71,7 @@ public sendGetRequest() {
 }
 
 
-buy() {
+/*buy() {
 
 //PARA ACCEDER UTILIZAR data[POSICION DEL ELEMENTO EN LA LISTA].DATO_QUE_SE_QUIERE_OBTENER
 
@@ -80,7 +80,7 @@ buy() {
     //AQUI EL PRIMERO ELEMENTO ES USUARIO AKSHAY Y OBTENGO EL NOMBRE DE AHI
   });
 
-}
+}*/
 
   ngOnInit(): void {
 

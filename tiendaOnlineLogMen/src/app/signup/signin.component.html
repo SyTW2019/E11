@@ -1,0 +1,91 @@
+<app-menu></app-menu>
+
+<div *ngIf="!success" class="my-form-container">
+
+  <a [routerLink]="['/login']" class="button fancy-button" [class.active]="viewPage=='logIn'" (click)="changePage('logIn')">Iniciar Sesión</a>
+  <a [routerLink]="['/']" class="button fancy-button">Volver</a>
+
+	<div class="my-form">
+	  <form [formGroup] = 'SignUpForm' (ngSubmit)='onSignUp()'>
+	      <div class="form-group">
+	          <div class="col">
+	            <input formControlName="firstName"
+	                  class="form-control col"
+	                  type="text"
+	                  placeholder="Nombre">
+	          </div>
+						<div *ngIf="firstName.touched && firstName.invalid" class="alert alert-danger">
+		          <div *ngIf="firstName.errors.required">
+		              El nombre es obligatorio.
+		          </div>
+		          <div *ngIf="firstName.errors.minlength">
+		              La mínima longitud del nombre es 3.
+		          </div>
+
+		        </div>
+	          <div class="col">
+	                <input formControlName="secondName"
+	                      class="form-control col"
+	                        type="text"
+	                        placeholder="Apellido">
+	          </div>
+
+	        <div *ngIf="secondName.touched && secondName.invalid" class="alert alert-danger">
+
+	            <div *ngIf="secondName.errors.required">
+	                El apellido es obligatorio.
+	            </div>
+	            <div *ngIf="secondName.errors.minlength">
+	                La mínima longitud del apellido es 3.
+	            </div>
+	          </div>
+
+	      </div>
+
+	      <div class="form-group">
+	        <input formControlName="email"
+	            type='email'
+	             class='form-control'
+	             placeholder='correoelectrónico@ejemplo.com'>
+	    </div>
+	    <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+
+	        <div *ngIf="email.errors.required">
+	            El correo electrónico es obligatorio.
+	        </div>
+	        <div *ngIf="email.errors.email">
+	           El formato deber ser correoelectrónico@ejemplo.com.
+	        </div>
+	    </div>
+	      <div class="form-group">
+	          <input formControlName="password"
+	                 type='password'
+	                 class='form-control'
+	                 placeholder='Escriba la contraseña'>
+	      </div>
+	      <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+
+	          <div *ngIf="password.errors.required">
+	              La contraseña es obligatoria.
+	          </div>
+	          <div *ngIf="password.errors.minlength">
+	            La longitud mínima es 8.
+	          </div>
+	      </div>
+	        <div class="form-group form-check">
+	            <input type="checkbox"
+	                    class="form-check-input"
+	                    formControlName="readPrivacy"
+	                    id="exampleCheck1">
+	            <label class="form-check-label"
+	                   for="exampleCheck1">
+	                   He leído y acepto los términos y condiciones.
+	                </label>
+	          </div>
+	          <button type="submit" [disabled]="loading" class="button blue-button">Registrarse</button>
+
+	     </form>
+	</div>
+</div>
+
+<b *ngIf="success" class="form-group">Welcome to TOnline, you've just been signed up.</b>

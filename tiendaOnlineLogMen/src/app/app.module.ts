@@ -13,13 +13,17 @@ import { UserListComponent } from './user/user.component';
 import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { FormComponent } from './form/form.component';
 import { StoreModule } from '@ngrx/store';
 import { ShoppingReducer } from './store/reducers/shopping-reducer';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { SigninComponent } from './signup/signin.component';
+
 
 const routes: Route[] = [
   {path: '', component: TopBarComponent},
-  { path: 'login', component: FormComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'signup', component: SigninComponent},
+  { path: 'user', component: PerfilUsuarioComponent}
 ];
 
 @NgModule({
@@ -30,7 +34,9 @@ const routes: Route[] = [
     MenuComponent,
     LoginComponent,
     TopBarComponent,
-    FormComponent
+    LoginComponent,
+    PerfilUsuarioComponent,
+    SigninComponent,
     ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
 
 <a [routerLink]="['/']">
-    <h1>TOnline</h1>
-  </a>
-  
-  <button mat-icon-button [matMenuTriggerFor]="menu" class="button fancy-button" aria-label="Example icon-button with a menu">
-    <mat-icon>reorder</mat-icon>
-  </button>
+  <h1>TOnline</h1>
+</a>
+
+<button mat-icon-button [matMenuTriggerFor]="menu" class="button fancy-button">
+  <i class="material-icons">reorder</i>
+</button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item>
       <mat-icon>laptop</mat-icon>
@@ -33,12 +33,35 @@
       </button>
   </mat-menu>
 
-    <input matInput class="example.container" placeholder="Búsqueda">
+<input matInput class="example.container" placeholder="Búsqueda">
 
-  <a [routerLink]="['/favoritos']" class="button fancy-button"><i class="material-icons">language</i>Idioma</a>
+<a *ngIf="!this.loggedIn" [routerLink]="['/login']" class="button fancy-button"><i class="material-icons">account_circle</i>Entra o regístrate</a>
 
-  <a [routerLink]="['/login']" class="button fancy-button"><i class="material-icons">account_circle</i>Entra o regístrate</a>
+<a [matMenuTriggerFor]="cart" class="button fancy-button"><i class="material-icons">shopping_cart</i>Carrito</a>
+	<mat-menu #cart="matMenu">
+		<li *ngFor="let shopping of shoppingItems$ | async"  >
 
-  <a [routerLink]="['/favoritos']" class="button fancy-button"><i class="material-icons">favorite</i>Lista de favoritos</a>
+			{{ shopping.name }}
 
-  <a [routerLink]="['/cart']" class="button fancy-button"><i class="material-icons">shopping_cart</i>Carrito</a>
+		</li>
+	</mat-menu>
+
+<button *ngIf="loggedIn" [matMenuTriggerFor]="userMenu" class="button fancy-button">
+	<i class="material-icons">account_circle</i>
+	{{username}}
+</button>
+  <mat-menu #userMenu="matMenu">
+		<a [routerLink]="['/favoritos']" class="button fancy-button">
+			<i class="material-icons">favorite</i>
+			Lista de favoritos
+		</a>
+    <a [routerLink]="['/user']" class="button fancy-button">
+			<i class="material-icons">settings</i>
+			Ajustes
+		</a>
+		<div></div>
+		<button (click)="onLogOut()" class="button fancy-button">
+			<i class="material-icons">account_circle</i>
+			Log out
+		</button>
+  </mat-menu>
