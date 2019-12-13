@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import {AuthenticationService} from '../authentication.service'
+import { Router, ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -7,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilUsuarioComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+		private authenticationService:AuthenticationService,
+		private route: ActivatedRoute,
+		private router: Router
+	) {
+			// redirect to login if not logged in
+			if (! this.authenticationService.currentUserValue) {
+					this.router.navigate(['/login']);
+			}
+	}
 
   ngOnInit() {
   }

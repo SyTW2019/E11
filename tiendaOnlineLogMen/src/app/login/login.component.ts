@@ -9,7 +9,6 @@ import { first } from 'rxjs/operators'
 	templateUrl: './login.component.html'
 })
 export class LoginComponent{
-	returnUrl: string
 	loading=false
 	logInForm:FormGroup
   error = ''
@@ -36,9 +35,6 @@ export class LoginComponent{
 					Validators.required
 				])
 		})
-
-		// get return url from route parameters or default to '/'
-		this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'
 	}
 
 	public get logPassword() {
@@ -48,7 +44,7 @@ export class LoginComponent{
 		return this.logInForm.get('logEmail')
 	}
 	onLogIn(){
-		// stop here if form is invalid
+		// stop if form is invalid
 		if (this.logInForm.invalid) {
 			return;
 		}
@@ -58,7 +54,7 @@ export class LoginComponent{
 		.pipe(first())
 		.subscribe(
 			data => {
-				this.router.navigate([this.returnUrl]);
+				this.router.navigate(['/']);
 			},
 			error => {
 				if(error.status==499) //Error 499, this is the one the backend sends on invalid username/password
@@ -68,7 +64,6 @@ export class LoginComponent{
 				this.loading = false;
 			});
 		}
-
 
 		viewPage = 'logIn';
 		public changePage(page){

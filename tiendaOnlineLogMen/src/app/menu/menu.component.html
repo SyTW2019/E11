@@ -35,8 +35,6 @@
 
 <input matInput class="example.container" placeholder="Búsqueda">
 
-<a *ngIf="!this.loggedIn" [routerLink]="['/login']" class="button fancy-button"><i class="material-icons">account_circle</i>Entra o regístrate</a>
-
 <a [matMenuTriggerFor]="cart" class="button fancy-button"><i class="material-icons">shopping_cart</i>Carrito</a>
 	<mat-menu #cart="matMenu">
 		<li *ngFor="let shopping of shoppingItems$ | async"  >
@@ -45,6 +43,8 @@
 
 		</li>
 	</mat-menu>
+
+<a *ngIf="!this.loggedIn" [routerLink]="['/login']" class="button fancy-button"><i class="material-icons">account_circle</i>Entra o regístrate</a>
 
 <button *ngIf="loggedIn" [matMenuTriggerFor]="userMenu" class="button fancy-button">
 	<i class="material-icons">account_circle</i>

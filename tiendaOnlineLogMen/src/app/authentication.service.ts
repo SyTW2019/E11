@@ -9,6 +9,7 @@ import { User } from './user/user.component';
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
+		response
 
     constructor(private http: HttpClient) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
@@ -20,7 +21,6 @@ export class AuthenticationService {
     }
 
     login(email: string, password: string) {
-			console.log(email+password+"")
         return this.http.post<any>('http://10.6.129.113:8080/check', { email:email, password:password })
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -37,11 +37,12 @@ export class AuthenticationService {
     }
 
 		signup(firstName:string, lastName:string, email:string, password:string){
-			return this.http.post<any>('http://10.6.129.113:8080/insert', { /*firstName:firstName, lastName:lastName, */email:email, password:password, collection:'users' })
+			this.response = this.http.post<any>('http://10.6.129.113:8080/insert', { email:email, password:password, firstName:firstName, lastName:lastName, collection:'users' })
 			.pipe(map(response => {
-					console.log("Signup Response: "+response);
+					//console.log("Signup Response: "+response);
 					return response;
 			}))
 			this.login(email,password)
+			return this.response
 		}
 }

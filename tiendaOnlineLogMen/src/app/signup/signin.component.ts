@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { FormGroup,FormControl,Validator, Validators} from '@angular/forms'
 import { Router, ActivatedRoute } from '@angular/router'
 import { AuthenticationService } from '../authentication.service'
+import { first } from 'rxjs/operators'
 
 @Component({
   selector: 'app-signin',
@@ -24,11 +25,9 @@ export class SigninComponent implements OnInit{
 	loading=false
 	success=false
 	SignUpForm:FormGroup
-	returnUrl=''
 
 	ngOnInit(){
 		// get return url from route parameters or default to '/'
-		this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'
 		this.SignUpForm = new FormGroup({
 	      firstName: new FormControl('',[
 	        Validators.required,
@@ -71,29 +70,37 @@ export class SigninComponent implements OnInit{
     return this.SignUpForm.get('password');
   }
   onSignUp(){
-    console.log(this.SignUpForm.value);
 		// stop here if form is invalid
 		if (this.SignUpForm.invalid || !this.SignUpForm.value.readPrivacy) {
 			return;
 		}
 		this.loading=true
 
-		if(this.authenticationService.signup(this.firstName.value, this.secondName.value, this.email.value, this.password.value)){
+		this.authenticationService.signup(this.firstName.value, this.secondName.value, this.email.value, this.password.value)
+		.pipe(first())
+		.subscribe(
+			data => {
+				this.success=true
+				this.delay(3000).then(any=>{
+					this.router.navigate(['/'])
+				})
+			},
+			error => {
+				this.loading=false
+				console.log("Error signup")
+				//show error (general, username already used,...)
+			});
+
+		/*if(this.authenticationService.signup(this.firstName.value, this.secondName.value, this.email.value, this.password.value)){
 			this.success=true
 			this.delay(3000).then(any=>{
 				this.router.navigate([this.returnUrl])
 			})
 		} else {
 			this.loading=false
+			console.log("Error signup")
 			//show error (general, username already used,...)
-		}
-
-
-    /*alert("First Name : " + this.SignUpForm.value.firstName +
-           "\nSecond Name : " +this.SignUpForm.value.secondName +
-           "\nEamil : " + this.SignUpForm.value.email +
-           "\nPassword : " + this.SignUpForm.value.password +
-           "\nRead Privacy : " + this.SignUpForm.value.readPrivacy);*/
+		}*/
   }
 
 }
