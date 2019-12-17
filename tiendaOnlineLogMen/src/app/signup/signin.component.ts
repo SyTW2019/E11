@@ -25,6 +25,7 @@ export class SigninComponent implements OnInit{
 	loading=false
 	success=false
 	SignUpForm:FormGroup
+	error=""
 
 	ngOnInit(){
 		// get return url from route parameters or default to '/'
@@ -82,25 +83,15 @@ export class SigninComponent implements OnInit{
 			data => {
 				this.success=true
 				this.delay(3000).then(any=>{
-					this.router.navigate(['/'])
+					this.router.navigate(['/login'])
 				})
 			},
 			error => {
 				this.loading=false
-				console.log("Error signup")
-				//show error (general, username already used,...)
+				if(error.status==498) //Error 498, this is the one the backend sends if the email is already being used
+					this.error="Este correo ya se usa."
+				this.error=error.message
 			});
-
-		/*if(this.authenticationService.signup(this.firstName.value, this.secondName.value, this.email.value, this.password.value)){
-			this.success=true
-			this.delay(3000).then(any=>{
-				this.router.navigate([this.returnUrl])
-			})
-		} else {
-			this.loading=false
-			console.log("Error signup")
-			//show error (general, username already used,...)
-		}*/
-  }
+  	}
 
 }

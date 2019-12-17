@@ -58,7 +58,7 @@ export class LoginComponent{
 			},
 			error => {
 				if(error.status==499) //Error 499, this is the one the backend sends on invalid username/password
-					this.error="Username or password is incorrect"
+					this.error="El correo o la contraseña están incorrectos."
 				else
 					this.error = error.message;
 				this.loading = false;
