@@ -25,7 +25,7 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
 		if (this.authenticationService.currentUserValue){
 			this.loggedIn=true
-			this.username=this.authenticationService.currentUserValue.firstName
+			this.username=this.authenticationService.currentUserValue.name
 		}
 		this.shoppingItems$ = this.store.select(store => store.shopping) ;
   }

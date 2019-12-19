@@ -10,9 +10,9 @@ describe('AuthenticationService', () => {
     expect(service).toBeTruthy();
   });
 
-	it('#login should return an User with his username (Steve) for s@j.com and steve123', () => {
-    const service: AuthenticationService = TestBed.get(AuthenticationService);
-		expect(AuthenticationService.login('s@j.com', 'steve123').username()).toBe('Steve')
-	})
+//	it('#login should return an User with his username (Steve) for s@j.com and steve123', () => {
+  //  const service: AuthenticationService = TestBed.get(AuthenticationService);
+	//	expect(AuthenticationService.login('s@j.com', 'steve123').username()).toBe('Steve')
+	//})
 
 });
