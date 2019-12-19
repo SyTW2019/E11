@@ -10,6 +10,10 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
+    sonarcloud:
+      organization: "sytw2019"
+    token:
+      secure: "**************************" # encrypted value of your token
 
 cache:
   directories:
@@ -20,5 +24,15 @@ before_install: cd tiendaOnlineLogMen
 install:
   - npm install
 
+
 script:
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+
+
+notifications:
+  slack: sytw:eFSSfJ93dL6SYCHkgOxiacNL
+
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - sonar-scanner
