@@ -27,12 +27,11 @@ install:
 
 script:
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+    # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - sonar-scanner
 
 
 notifications:
   slack: sytw:eFSSfJ93dL6SYCHkgOxiacNL
 
 
-script:
-  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - sonar-scanner
