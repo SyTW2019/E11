@@ -11,12 +11,12 @@ addons:
   sonarcloud:
     organization: "sytw2019"
     token:
-      secure: "f3q4G3/mW9P5Xx9PWsfLhtYKDMoAQuV0I3X0k0ILZ0cTtSs7T0hHEPsV6uoUAn5t/RNGLxgzM0U82DzEE5lDXVcUiJCwN/rVF9O4HSQoEvfjCT4UHbHyBlE1SQAhmyoajPPt5CqQNc3yvTx51PKhZ92f9dDz8QaA+Q4wCpR+p/38VSsya5bo6CAFCfCkJvP3nQZUNYsxxNiYbCJx5jrBUAdSxFCLeWAS/TplnthL1Kxezbm/34oPvGyBICcqH9Sb3ffCYR+8oEvuMMwcFfc6ZvkXcDeEMulg4hxXWSpgIJgEQpQP7YIxYYnbbrVMb2BB5CVUybLD2uyCR4hMFduVwWCCZ6WGCESaM0rC6Kb54yN5y1KGifrQY6CSKAD0JAK92lFqHzAMabnFyYtQ99q/EReW3TR3dA94rrtZpzr4sb29K7M1OhABXVs0C78iV1p+X12JMHDKwx+zRrSJWWhEVGi1dJKr0XALQrKWnvs/zSWa71UykgLLcH9xFfBoXUailZ7ACAZ7fuFRQW3QYXnl+3a+/tbaAfRM8n1JTS684EIW74ZSka9D9fUGc5yUwEDLdHHcRtyOuKaoiBtr8RfRKRefA6GTfJd/OemRID9UMm+Lkrjv0zyEEyCieK43e2bFX9cv1vH9AYJRXahZ1l7LGSwkmsxKI5vkGNYX0T7iv+4="
+      secure: "x+/EwhfihksOVgEQhDf0WQgYcqp6k8Q+zOy4F0cZExjVfNmM/2x5T6s7ziKcAm+XF0oC5mrpu4sIVPqJrFnk2Z47TNkPy2+CU4/FiyWSswrx9Bfe9I00WQJea8IX5ATvgfr997d3xTSIIEtgtnq93JSVq10Vfd3oh6u9Rw3SJksCdbgWdy23vfI6kg3ag5/DVyVh8ulGVpEZRE7cfYZH9kgA0iMHBLGFnGilgK1xqvu9eQFUdR80I45sEK9UBpVyukBhxa0Cj3mX1765RK7BX+JdrQsBJSprVjbxaxnrSWPdLNsHHN34wQu79FNcLJDLfuJa58XLwNDBlM9ZslxhAw3JJb799L+YMY4JMxL1bQ3WkdSi72XqVbOhs5PeZdcSxoOBzQoEG8OPEmTuJOS2U+2rbSMtQvU2ON3oiXle56LWafNHM4jiIC6hdp/d0zl8r2TSJydDm07+CEZSkj93d1O1f7vRV6UP9SC3FEhjQh/cmLlOzi0WR0nbeyUbyZSj3WQJ+Z7WquhFeYAGibn3+qWyoT/2tml1f/CmTxNrOohVFjUE2il8YfbRFmvv7fqoNo57Eei5c2vpxcUybaGtTBpZK5A9JBZ5Kxwg4epEDtcnzyM68lhdKVBCBs3DWPYmo+fbND1os92S7+fs0klu0Zq/wrcv8IAs7dO+Ps5gQLU="
 cache:
   directories:
   - "./tiendaOnlineLogMen/node_modules"
-before_install:
-- cd tiendaOnlineLogMen
+#before_install:
+#- cd tiendaOnlineLogMen
 install:
 - npm install
 notifications:
@@ -26,7 +26,6 @@ script:
 #- unzip sonar-scanner-cli-4.1.0.1829-linux.zip
 #- export PATH="sonar-scanner-4.1.0.1829-linux/bin:$PATH"
 #- cd ..
-- cd ..
 - sonar-scanner
 #- cd tiendaOnlineLogMen
 #- npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
