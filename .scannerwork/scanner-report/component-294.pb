@@ -1,1 +1,0 @@
-¦ 2tsXhr+tiendaOnlineLogMen/src/app/app.component.ts

@@ -1,1 +1,0 @@
-© 2tsX	hr:tiendaOnlineLogMen/src/app/store/models/app-state.model.ts

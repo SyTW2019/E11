@@ -1,1 +1,0 @@
-» 2tsXfhr7tiendaOnlineLogMen/src/app/product/product.component.ts

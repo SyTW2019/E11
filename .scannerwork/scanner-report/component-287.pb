@@ -1,1 +1,0 @@
-Ÿ 2tsXhr$tiendaOnlineLogMen/e2e/src/app.po.ts
