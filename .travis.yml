@@ -11,7 +11,8 @@ addons:
     sonarcloud:
       organization: sytw2019
     token:
-      secure: "f3q4G3/mW9P5Xx9PWsfLhtYKDMoAQuV0I3X0k0ILZ0cTtSs7T0hHEPsV6uoUAn5t/RNGLxgzM0U82DzEE5lDXVcUiJCwN/rVF9O4HSQoEvfjCT4UHbHyBlE1SQAhmyoajPPt5CqQNc3yvTx51PKhZ92f9dDz8QaA+Q4wCpR+p/38VSsya5bo6CAFCfCkJvP3nQZUNYsxxNiYbCJx5jrBUAdSxFCLeWAS/TplnthL1Kxezbm/34oPvGyBICcqH9Sb3ffCYR+8oEvuMMwcFfc6ZvkXcDeEMulg4hxXWSpgIJgEQpQP7YIxYYnbbrVMb2BB5CVUybLD2uyCR4hMFduVwWCCZ6WGCESaM0rC6Kb54yN5y1KGifrQY6CSKAD0JAK92lFqHzAMabnFyYtQ99q/EReW3TR3dA94rrtZpzr4sb29K7M1OhABXVs0C78iV1p+X12JMHDKwx+zRrSJWWhEVGi1dJKr0XALQrKWnvs/zSWa71UykgLLcH9xFfBoXUailZ7ACAZ7fuFRQW3QYXnl+3a+/tbaAfRM8n1JTS684EIW74ZSka9D9fUGc5yUwEDLdHHcRtyOuKaoiBtr8RfRKRefA6GTfJd/OemRID9UMm+Lkrjv0zyEEyCieK43e2bFX9cv1vH9AYJRXahZ1l7LGSwkmsxKI5vkGNYX0T7iv+4="cache:
+      secure: "f3q4G3/mW9P5Xx9PWsfLhtYKDMoAQuV0I3X0k0ILZ0cTtSs7T0hHEPsV6uoUAn5t/RNGLxgzM0U82DzEE5lDXVcUiJCwN/rVF9O4HSQoEvfjCT4UHbHyBlE1SQAhmyoajPPt5CqQNc3yvTx51PKhZ92f9dDz8QaA+Q4wCpR+p/38VSsya5bo6CAFCfCkJvP3nQZUNYsxxNiYbCJx5jrBUAdSxFCLeWAS/TplnthL1Kxezbm/34oPvGyBICcqH9Sb3ffCYR+8oEvuMMwcFfc6ZvkXcDeEMulg4hxXWSpgIJgEQpQP7YIxYYnbbrVMb2BB5CVUybLD2uyCR4hMFduVwWCCZ6WGCESaM0rC6Kb54yN5y1KGifrQY6CSKAD0JAK92lFqHzAMabnFyYtQ99q/EReW3TR3dA94rrtZpzr4sb29K7M1OhABXVs0C78iV1p+X12JMHDKwx+zRrSJWWhEVGi1dJKr0XALQrKWnvs/zSWa71UykgLLcH9xFfBoXUailZ7ACAZ7fuFRQW3QYXnl+3a+/tbaAfRM8n1JTS684EIW74ZSka9D9fUGc5yUwEDLdHHcRtyOuKaoiBtr8RfRKRefA6GTfJd/OemRID9UMm+Lkrjv0zyEEyCieK43e2bFX9cv1vH9AYJRXahZ1l7LGSwkmsxKI5vkGNYX0T7iv+4="
+cache:
   directories:
   - "./tiendaOnlineLogMen/node_modules"
 before_install:
@@ -25,6 +26,6 @@ script:
 - unzip sonar-scanner-cli-4.1.0.1829-linux.zip
 - export PATH="sonar-scanner-4.1.0.1829-linux/bin:$PATH"
 - cd ..
-- sonar-scanner -X -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.projectKey=SyTW2019_E11
+- sonar-scanner
 - cd tiendaOnlineLogMen
 - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
