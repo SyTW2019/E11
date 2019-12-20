@@ -21,10 +21,6 @@ before_install:
   cd tiendaOnlineLogMen
   wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip 6
   unzip sonar-scanner-cli-3.3.0.1492-linux.zip -d /tmp
-  script:
-    /tmp/sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner 
-    -Dsonar.projectKey=$SONARQUBE_PROJECT_KEY -Dsonar.sources=. 
-    -Dsonar.host.url=$SONARQUBE_URL -Dsonar.login=$SONARQUBE_LOGIN
 install:
 - npm install
 notifications:
@@ -36,4 +32,7 @@ env:
 
 script:
 - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+- /tmp/sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner 
+- Dsonar.projectKey=$SONARQUBE_PROJECT_KEY -Dsonar.sources=. 
+- Dsonar.host.url=$SONARQUBE_URL -Dsonar.login=$SONARQUBE_LOGIN
 - sonar-scanner
