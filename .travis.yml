@@ -11,8 +11,7 @@ addons:
     sonarcloud:
       organization: sytw2019
     token:
-      secure: iL18P5sNdWr+Y9KIPotdKiPx5u7hxB3vPp7gQVYLRJcWhj/zlg83AvqvBM0kQyYHI627ertR3HG45jO6pCJ6kuiE3ZilaOzWn/d4/sGZq8cCjko+2GDb/lL/dU3E6jVZ6eSJWf0znAZH6IxLxypj1mqwijaz/Z4WJwSrCVsq5vBlxySmItQOSi0+5Ja7cypSpSdhPwnBXIuxsBaLPn+qDOfRd9jX6/Z/OOvkHesBU6gmMddfMLJc5MeDn2ChQ9a5SPejXunKpWHOdHwW3GNigWbjTHKBkmfBSS5SXuQhTZlr4UkXKcjL7U4288p6AbjETBgsBv3oaVgA+hmBVLYyLYKmIEf2hXPxN8yR4uI6Lwp9eawCzMtkUVdPhK4MnTV9T8aGsBItHfTaojUzAmIcvABNC4hQDR5sGzJFTCjnVNDK4MCPcO2pk3XyNEE/0JYoACfFAUoqFAOxzDAxt6RoBhNj/+IwLriM8YF+hBR8o+T/j9KqicGyhhOPYxwrpB9dA+vBVzrMtz6dZ1h6Ff7k9/YF903wA5F3RxeR73x+DOxAfqn+vUOBID13t9/uEYZDDqCyqHl2ESpipE+0UyvkuF75fgFqLYw4v6/qSZ0/koaAv0aZ5+FGVs6V+vBnZI0iQRga60Z/ygp66DxJUWXj9Wk32QVbdA421RauKO5TZLU=
-cache:
+      secure: "f3q4G3/mW9P5Xx9PWsfLhtYKDMoAQuV0I3X0k0ILZ0cTtSs7T0hHEPsV6uoUAn5t/RNGLxgzM0U82DzEE5lDXVcUiJCwN/rVF9O4HSQoEvfjCT4UHbHyBlE1SQAhmyoajPPt5CqQNc3yvTx51PKhZ92f9dDz8QaA+Q4wCpR+p/38VSsya5bo6CAFCfCkJvP3nQZUNYsxxNiYbCJx5jrBUAdSxFCLeWAS/TplnthL1Kxezbm/34oPvGyBICcqH9Sb3ffCYR+8oEvuMMwcFfc6ZvkXcDeEMulg4hxXWSpgIJgEQpQP7YIxYYnbbrVMb2BB5CVUybLD2uyCR4hMFduVwWCCZ6WGCESaM0rC6Kb54yN5y1KGifrQY6CSKAD0JAK92lFqHzAMabnFyYtQ99q/EReW3TR3dA94rrtZpzr4sb29K7M1OhABXVs0C78iV1p+X12JMHDKwx+zRrSJWWhEVGi1dJKr0XALQrKWnvs/zSWa71UykgLLcH9xFfBoXUailZ7ACAZ7fuFRQW3QYXnl+3a+/tbaAfRM8n1JTS684EIW74ZSka9D9fUGc5yUwEDLdHHcRtyOuKaoiBtr8RfRKRefA6GTfJd/OemRID9UMm+Lkrjv0zyEEyCieK43e2bFX9cv1vH9AYJRXahZ1l7LGSwkmsxKI5vkGNYX0T7iv+4="cache:
   directories:
   - "./tiendaOnlineLogMen/node_modules"
 before_install:
@@ -27,6 +26,5 @@ script:
 - export PATH="sonar-scanner-4.1.0.1829-linux/bin:$PATH"
 - cd ..
 - sonar-scanner -X -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.projectKey=SyTW2019_E11
+- cd tiendaOnlineLogMen
 - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
-env:
-  secure: iL18P5sNdWr+Y9KIPotdKiPx5u7hxB3vPp7gQVYLRJcWhj/zlg83AvqvBM0kQyYHI627ertR3HG45jO6pCJ6kuiE3ZilaOzWn/d4/sGZq8cCjko+2GDb/lL/dU3E6jVZ6eSJWf0znAZH6IxLxypj1mqwijaz/Z4WJwSrCVsq5vBlxySmItQOSi0+5Ja7cypSpSdhPwnBXIuxsBaLPn+qDOfRd9jX6/Z/OOvkHesBU6gmMddfMLJc5MeDn2ChQ9a5SPejXunKpWHOdHwW3GNigWbjTHKBkmfBSS5SXuQhTZlr4UkXKcjL7U4288p6AbjETBgsBv3oaVgA+hmBVLYyLYKmIEf2hXPxN8yR4uI6Lwp9eawCzMtkUVdPhK4MnTV9T8aGsBItHfTaojUzAmIcvABNC4hQDR5sGzJFTCjnVNDK4MCPcO2pk3XyNEE/0JYoACfFAUoqFAOxzDAxt6RoBhNj/+IwLriM8YF+hBR8o+T/j9KqicGyhhOPYxwrpB9dA+vBVzrMtz6dZ1h6Ff7k9/YF903wA5F3RxeR73x+DOxAfqn+vUOBID13t9/uEYZDDqCyqHl2ESpipE+0UyvkuF75fgFqLYw4v6/qSZ0/koaAv0aZ5+FGVs6V+vBnZI0iQRga60Z/ygp66DxJUWXj9Wk32QVbdA421RauKO5TZLU=
