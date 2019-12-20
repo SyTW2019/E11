@@ -22,6 +22,9 @@ install:
 notifications:
   slack: sytw:eFSSfJ93dL6SYCHkgOxiacNL
 script:
+- wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.1.0.1829-linux.zip
+- unzip sonar-scanner-cli-4.1.0.1829-linux.zip
+- export PATH="sonar-scanner-4.1.0.1829-linux/bin:$PATH" 
 - sonar-scanner
 dd:
   secure: zC5DYOSgUbX4ReLHb2gwOJR9LSaRi8ozk8WqkzKwHXASY7+QSLVgBSFEF9va5W/NI91THxxzB0bKOWEMpUiMg1e0FAeIf4S8eXSCekwmo6PdZ3ap1C1psFvXHitW3KX+oBNdGReAzBs7BHypNc7CUoWnFArfpC+PWcLL+u0m6pErQwnaQoNc+gzL0hkYv0lglDni82kaEOT2yxcL/RWGYTCuBT/CuwuamGJIrYdOvEGjVCn5MPjsoTqXnt8SHYM3DwH3BOtU/iluEpBrDXZiwzqJJwNEAQ508pOJsZPvpWOw7ZoJz9l508ovrvwLdtVl0ViKYwh6Tv+cxvKhQg23NWz8+uIoLE+XY36SVyCExJKdlLQtxxWEPRYZqsStxGNunC32v7gMqf8T/TATRNtkTCHXXNdPyYkAKyDXKvhYXo7BSZ+bYOVZjoP5R4FYkvGexuZ7VkgI5f8CY3hhSSwP/xAm6CQZw7pc0F6WZp5a/nnQkYGHN9IkUnUOGfFgempPvuXUxA2r8UPJj6X+c1fCO7ArwAYlmbtsAb8Ch9U23K3l+Pgc5iSOSvOU+C+wyz9C07GVlQOhKfYiuN26mVT7+i0ryCCbWsR9mp7SdNu0cDudM0UtiAA4mdTu0czIWTMCcgOulCZBO2wZNueFRJGCOwR0eFa7ojhhkMPQfTwreGg=
