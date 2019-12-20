@@ -1,0 +1,1 @@
+š 2jsX'hr tiendaOnlineLogMen/karma.conf.js

@@ -1,0 +1,1 @@
+  2tsXhr*tiendaOnlineLogMen/e2e/src/app.e2e-spec.ts

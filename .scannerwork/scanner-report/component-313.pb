@@ -1,0 +1,1 @@
+¹ 2webXhr9tiendaOnlineLogMen/src/app/product/product.component.html
