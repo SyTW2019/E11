@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import {RouterModule,Route} from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule} from  '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { MatMenuModule} from '@angular/material/menu';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,18 +14,19 @@ import { ProductListComponent } from './product/product.component';
 import { UserListComponent } from './user/user.component';
 import { MenuComponent } from './menu/menu.component';
 import { LoginComponent } from './login/login.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
 import { StoreModule } from '@ngrx/store';
 import { ShoppingReducer } from './store/reducers/shopping-reducer';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { SigninComponent } from './signup/signin.component';
-
+import { HomeComponent } from './home/home.component';
+import { ProductShowComponent } from './product-show/product-show.component';
 
 const routes: Route[] = [
-  {path: '', component: TopBarComponent},
+  {path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SigninComponent},
-  { path: 'user', component: PerfilUsuarioComponent}
+  { path: 'user', component: PerfilUsuarioComponent},
+	{ path: 'product/:id', component: ProductShowComponent}
 ];
 
 @NgModule({
@@ -33,10 +36,11 @@ const routes: Route[] = [
     UserListComponent,
     MenuComponent,
     LoginComponent,
-    TopBarComponent,
     LoginComponent,
     PerfilUsuarioComponent,
     SigninComponent,
+    HomeComponent,
+    ProductShowComponent
     ],
   imports: [
     BrowserModule,
@@ -52,6 +56,7 @@ const routes: Route[] = [
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
     StoreModule.forRoot({
       shopping: ShoppingReducer,
     })

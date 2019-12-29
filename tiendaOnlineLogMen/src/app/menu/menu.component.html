@@ -1,67 +1,138 @@
+<mat-toolbar color="primary">
+	<mat-toolbar-row>
+		<a [routerLink]="['/']" mat-button><b>TOnline</b></a>
 
-<a [routerLink]="['/']">
-  <h1>TOnline</h1>
-</a>
+		<span class="example-spacer"></span>
 
-<button mat-icon-button [matMenuTriggerFor]="menu" class="button fancy-button">
-  <i class="material-icons">reorder</i>
-</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>laptop</mat-icon>
-      <span>Ordenadores</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>phone_iphone</mat-icon>
-      <span>Smartphones/Telefonía</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>camera_alt</mat-icon>
-      <span>Audio/Foto/Vídeo</span>
-    </button>
-    <button mat-menu-item>
-        <mat-icon>mouse</mat-icon>
-        <span>Periféricos</span>
-      </button>
-    <button mat-menu-item>
-      <mat-icon>tv</mat-icon>
-      <span>Televisores</span>
-    </button>
-    <button mat-menu-item>
-        <mat-icon>tablet_mac</mat-icon>
-        <span>Tablets/Ebooks</span>
-      </button>
-  </mat-menu>
+		<!-- Top bar for big screen size -->
+		<div fxHide fxShow.gt-sm>
 
-<input matInput class="example.container" placeholder="Búsqueda">
+			<button mat-button [matMenuTriggerFor]="bigScreenMenu">Categorías</button>
 
-<a [matMenuTriggerFor]="cart" class="button fancy-button"><i class="material-icons">shopping_cart</i>Carrito</a>
-	<mat-menu #cart="matMenu">
-		<li *ngFor="let shopping of shoppingItems$ | async"  >
+			<input matInput class="example.container" placeholder="Búsqueda">
 
-			{{ shopping.name }}
+			<button [matMenuTriggerFor]="cart" mat-button>
+				<mat-icon>shopping_cart</mat-icon>
+				Carrito
+			</button>
 
-		</li>
-	</mat-menu>
+			<button *ngIf="!this.loggedIn" [routerLink]="['/login']" mat-button>
+				<mat-icon>account_circle</mat-icon>
+				Iniciar sesión o registrarse
+			</button>
 
-<a *ngIf="!this.loggedIn" [routerLink]="['/login']" class="button fancy-button"><i class="material-icons">account_circle</i>Entra o regístrate</a>
+			<button *ngIf="loggedIn" [matMenuTriggerFor]="userMenu" mat-button>
+				<mat-icon>account_circle</mat-icon>
+				{{username}}
+			</button>
 
-<button *ngIf="loggedIn" [matMenuTriggerFor]="userMenu" class="button fancy-button">
-	<i class="material-icons">account_circle</i>
-	{{username}}
-</button>
-  <mat-menu #userMenu="matMenu">
-		<a [routerLink]="['/favoritos']" class="button fancy-button">
-			<i class="material-icons">favorite</i>
-			Lista de favoritos
-		</a>
-    <a [routerLink]="['/user']" class="button fancy-button">
-			<i class="material-icons">settings</i>
-			Ajustes
-		</a>
-		<div></div>
-		<button (click)="onLogOut()" class="button fancy-button">
-			<i class="material-icons">account_circle</i>
-			Log out
-		</button>
-  </mat-menu>
+		</div>
+
+		<!-->Top bar for small screen size<-->
+		<div fxShow fxHide.gt-sm>
+
+			<button [matMenuTriggerFor]="cart" mat-button>
+				<mat-icon>shopping_cart</mat-icon>
+			</button>
+
+			<button mat-button [matMenuTriggerFor]="smallScreenMenu"><mat-icon>menu</mat-icon></button>
+
+			<button *ngIf="loggedIn" [matMenuTriggerFor]="userMenu" mat-button>
+				<mat-icon>account_circle</mat-icon>
+			</button>
+
+			<button *ngIf="!this.loggedIn" [routerLink]="['/login']" mat-button>
+				<mat-icon>account_circle</mat-icon>
+			</button>
+
+		</div>
+
+	</mat-toolbar-row>
+</mat-toolbar>
+
+
+<!-- Menus -->
+
+<!-- BigScreenMenu -->
+<mat-menu #bigScreenMenu="matMenu">
+	<button mat-menu-item>
+		<mat-icon>laptop</mat-icon>
+		<span>Ordenadores</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>phone_iphone</mat-icon>
+		<span>Smartphones/Telefonía</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>camera_alt</mat-icon>
+		<span>Audio/Foto/Vídeo</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>mouse</mat-icon>
+		<span>Periféricos</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>tv</mat-icon>
+		<span>Televisores</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>tablet_mac</mat-icon>
+		<span>Tablets/Ebooks</span>
+	</button>
+</mat-menu>
+
+<!-- smallScreenMenu -->
+<mat-menu #smallScreenMenu="matMenu">
+	<button mat-menu-item>
+		<mat-icon>laptop</mat-icon>
+		<span>Ordenadores</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>phone_iphone</mat-icon>
+		<span>Smartphones/Telefonía</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>camera_alt</mat-icon>
+		<span>Audio/Foto/Vídeo</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>mouse</mat-icon>
+		<span>Periféricos</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>tv</mat-icon>
+		<span>Televisores</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>tablet_mac</mat-icon>
+		<span>Tablets/Ebooks</span>
+	</button>
+	<input matInput class="example.container" placeholder="Búsqueda">
+</mat-menu>
+
+<!-- User Menu -->
+<mat-menu #userMenu="matMenu">
+	<div fxShow fxHide.gt-sm>
+		<b>{{username}}</b>
+	</div>
+	<button [routerLink]="['/favoritos']" class="button fancy-button">
+		<i class="material-icons">favorite</i>
+		Lista de favoritos
+	</button>
+	<button [routerLink]="['/user']" class="button fancy-button">
+		<i class="material-icons">settings</i>
+		Ajustes
+	</button>
+	<div></div>
+	<button (click)="onLogOut()" class="button fancy-button">
+		<i class="material-icons">account_circle</i>
+		Log out
+	</button>
+</mat-menu>
+
+<!-- Cart  -->
+<mat-menu #cart="matMenu">
+	<ul style="list-style-type:none;" *ngFor="let shopping of shoppingItems$ | async"  >
+		{{ shopping.name }}
+	</ul>
+</mat-menu>

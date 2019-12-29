@@ -8,7 +8,7 @@ import {v4 as uuid } from 'uuid';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-class Product {
+export class Product {
   id: string;
   name: string;
   brand: string;
