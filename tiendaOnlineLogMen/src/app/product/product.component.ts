@@ -46,6 +46,7 @@ export class Product {
 export class ProductListComponent implements OnInit {
 
   products: Product[];
+  productos;
 
 
 
@@ -70,13 +71,16 @@ public sendGetRequest() {
   return this.httpClient.get(this.configUrl);
 }
 
+public sendGetRequestprod() {
+  return this.httpClient.get('http://10.6.129.113:8080/products');
+}
 
 /*buy() {
 
 //PARA ACCEDER UTILIZAR data[POSICION DEL ELEMENTO EN LA LISTA].DATO_QUE_SE_QUIERE_OBTENER
 
-  this.sendGetRequest().subscribe((data: any[])=> {
-    alert(JSON.stringify(data[0].firstName));
+  this.sendGetRequestprod().subscribe((data: any[])=> {
+    alert(JSON.stringify(data));
     //AQUI EL PRIMERO ELEMENTO ES USUARIO AKSHAY Y OBTENGO EL NOMBRE DE AHI
   });
 
@@ -85,6 +89,10 @@ public sendGetRequest() {
   ngOnInit(): void {
 
     this.shoppingItems$ = this.store.select(store => store.shopping) ;
+    this.sendGetRequestprod().subscribe((prods: any[])=> {
+      this.productos=prods;
+      //alert(JSON.stringify(this.productos));
+    });
   }
 
   addItem( names: string) {

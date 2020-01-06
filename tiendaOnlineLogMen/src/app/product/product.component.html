@@ -1,9 +1,9 @@
 <h2>Productos</h2>
-<!--
+
 <button (click)="buy()">
   PROBAR MONGO
 </button>
--->
+
 <div *ngFor="let product of products">
 
   <h3>
@@ -19,5 +19,24 @@
   <button (click)="addItem( product.name )">
     Comprar
   </button>
+</div>
 
+
+<h1>Mostrando todos los productos cogidos de la base de datos de Mongo</h1>
+
+<div *ngFor="let product of productos">
+
+  <h3>
+    <a [title]="product.name + ' details'">
+      {{ product.name }}
+    </a>
+  </h3>
+
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>
+
+  <button (click)="addItem( product.name )">
+    Comprar
+  </button>
 </div>
