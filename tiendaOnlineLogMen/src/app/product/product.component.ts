@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 import { AddItemAction } from '../store/actions/shopping-actions';
 import {v4 as uuid } from 'uuid';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 export class Product {
   id: string;
@@ -47,6 +47,9 @@ export class ProductListComponent implements OnInit {
 
   products: Product[];
   productos;
+  busqueda;
+  tosearch;
+
 
 
 
@@ -75,16 +78,29 @@ public sendGetRequestprod() {
   return this.httpClient.get('http://10.6.129.113:8080/products');
 }
 
+
+searchProducts() {
+  this.httpClient.post('http://10.6.129.113:8080/search',
+     {
+  search: this.tosearch
+     },
+      ).toPromise().then(data => {
+    this.busqueda = data;
+  });
+}
+
 /*buy() {
 
 //PARA ACCEDER UTILIZAR data[POSICION DEL ELEMENTO EN LA LISTA].DATO_QUE_SE_QUIERE_OBTENER
 
-  this.sendGetRequestprod().subscribe((data: any[])=> {
-    alert(JSON.stringify(data));
+  //this.sendGetRequestprod().subscribe((data: any[])=> {
+   // alert(JSON.stringify();
+    this.createArticle();
     //AQUI EL PRIMERO ELEMENTO ES USUARIO AKSHAY Y OBTENGO EL NOMBRE DE AHI
-  });
+ // });
 
 }*/
+
 
   ngOnInit(): void {
 
