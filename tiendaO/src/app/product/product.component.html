@@ -1,0 +1,52 @@
+<h2>Productos</h2>
+
+
+<h1>RESULTADOS DE BUSQUEDA</h1>
+
+<div *ngFor="let product of busqueda">
+
+  <h3>
+    <a [title]="product.name + ' details'" [routerLink]="['product', product._id]">
+      {{ product.name }}
+    </a>
+  </h3>
+
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>
+
+	<button (click)="cartService.addItem( product.name, product._id, product.price )">
+		<div>Añadir al carrito</div>
+		<div *ngIf="cartService.newShoppingItem && cartService.newShoppingItem.id==product._id">&nbsp;otra vez.</div>
+	</button>
+</div>
+
+<input [(ngModel)]="tosearch" type="text" >
+<button (click)="searchProducts()">
+  Buscar Productos
+</button>
+
+
+
+<h1>Productos creados con constructor</h1>
+
+
+<h1>Mostrando todos los productos cogidos de la base de datos de Mongo</h1>
+
+<div *ngFor="let product of productos">
+
+  <h3>
+    <a [title]="product.name + ' details'" [routerLink]="['product', product._id]">
+      {{ product.name }}
+    </a>
+  </h3>
+
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>
+
+	<button (click)="cartService.addItem( product.name, product._id, product.price )">
+		<div>Añadir al carrito</div>
+		<div *ngIf="cartService.newShoppingItem && cartService.newShoppingItem.id==product._id">&nbsp;otra vez.</div>
+	</button>
+</div>
