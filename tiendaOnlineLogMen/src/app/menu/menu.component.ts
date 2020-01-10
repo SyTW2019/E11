@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import {AuthenticationService} from '../authentication.service'
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ShoppingItem } from '../store/models/shopping-item.model';
-import { AppState } from '../store/models/app-state.model';
 import { Router, ActivatedRoute } from '@angular/router'
+import { CartService } from '../cart.service'
 
 @Component({
   selector: 'app-menu',
@@ -17,9 +16,9 @@ export class MenuComponent implements OnInit {
 	shoppingItems$: Observable<Array<ShoppingItem>>
   constructor(
 		private authenticationService:AuthenticationService,
-		private store: Store<AppState>,
 		private route: ActivatedRoute,
-		private router: Router
+		private router: Router,
+		private cartService:CartService
 	) { }
 
   ngOnInit() {
@@ -27,7 +26,7 @@ export class MenuComponent implements OnInit {
 			this.loggedIn=true
 			this.username=this.authenticationService.currentUserValue.username
 		}
-		this.shoppingItems$ = this.store.select(store => store.shopping) ;
+		this.shoppingItems$=this.cartService.getItems();
   }
 
 	onLogOut(){

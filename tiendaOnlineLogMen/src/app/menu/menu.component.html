@@ -133,6 +133,7 @@
 <!-- Cart  -->
 <mat-menu #cart="matMenu">
 	<ul style="list-style-type:none;" *ngFor="let shopping of shoppingItems$ | async"  >
-		{{ shopping.name }}
+		{{ shopping.name }}&nbsp;
+		{{ shopping.price }} €
 	</ul>
 </mat-menu>

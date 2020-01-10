@@ -3,4 +3,10 @@
 	<b>{{product.name}}</b>
 	<p>{{product.description}}</p>
 	<p>Precio: {{product.price}} €</p>
+	<button (click)="cartService.addItem( product.name, product.id, product.price )">
+		<div *ngIf="!cartService.newShoppingItem">Comprar</div>
+		<div *ngIf="cartService.newShoppingItem">Comprado. Comprar otra vez</div>
+	</button>
 </div>
+
+<b>{{error}}</b>

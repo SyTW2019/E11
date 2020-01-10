@@ -3,6 +3,7 @@ import {Product} from '../product/product.component'
 import { Router, ActivatedRoute } from '@angular/router'
 import { map, first } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http'
+import { CartService } from '../cart.service'
 
 @Component({
   selector: 'app-product-show',
@@ -16,9 +17,11 @@ export class ProductShowComponent implements OnInit {
 	error:String
 	loaded=false
 
+
   constructor(
 		private route: ActivatedRoute,
-		private http: HttpClient
+		private http: HttpClient,
+		private cartService:CartService
 	) { }
 
   ngOnInit() {
@@ -42,5 +45,4 @@ export class ProductShowComponent implements OnInit {
 						})
 	 	});
   }
-
 }
