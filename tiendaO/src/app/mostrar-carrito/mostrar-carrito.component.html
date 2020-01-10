@@ -1,0 +1,64 @@
+<app-menu></app-menu>
+<div id="w">
+    <div id="page">
+      <table id="cart">
+        <thead>
+          <tr>
+            <th class="first">Foto</th>
+            <th class="second">Cantidad</th>
+            <th class="third">Producto</th>
+            <th class="fourth">Precio</th>
+            <th class="fifth">&nbsp;</th>
+            <th class="six">&nbsp;</th>
+         </tr>
+        </thead>
+        <tbody>
+          <tr class="productitm">
+            <td><img src="https://mi0.rightinthebox.com/images/128x128/201910/xrdpst1570784914984.jpg" width="50" height="50" class="thumb"></td>
+            <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+            <td>Iphone XS Max</td>
+            <td>1.200€</td>
+            <td><span class="remove"><mat-icon>cancel</mat-icon></span></td>
+          </tr>
+          <tr class="productitm">
+            <td><img src="https://mi0.rightinthebox.com/images/128x128/201910/xrdpst1570784914984.jpg" width="50" height="50" class="thumb"></td>
+            <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+            <td>Iphone XS Max</td>
+            <td>1.200€</td>
+            <td><span class="remove"><mat-icon>cancel</mat-icon></span></td>
+          </tr>
+          <tr class="productitm">
+            <td><img src="https://mi0.rightinthebox.com/images/128x128/201910/xrdpst1570784914984.jpg" width="50" height="50" class="thumb"></td>
+            <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+            <td>Iphone XS Max</td>
+            <td>1.200€</td>
+            <td><span class="remove"><mat-icon>cancel</mat-icon></span></td>
+          </tr>
+          <tr class="productitm">
+            <td><img src="https://mi0.rightinthebox.com/images/128x128/201910/xrdpst1570784914984.jpg" width="50" height="50" class="thumb"></td>
+            <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+            <td>Iphone XS Max</td>
+            <td>1.200€</td>
+            <td><span class="remove"><mat-icon>cancel</mat-icon></span></td>
+          </tr>
+          
+          <tr class="extracosts">
+            <td class="light">Envío</td>
+            <td colspan="2" class="light"></td>
+            <td>10.00€</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr class="totalprice">
+            <td class="light">Total:</td>
+            <td colspan="2">&nbsp;</td>
+            <td colspan="2"><span class="thick">4.810€</span></td>
+          </tr>
+          <tr class="checkoutrow">
+            <td colspan="5" [routerLink]="['/pago']" class="fancy-button"><button>Pagar</button></td>
+            <button [routerLink]="['']" class="fancy-button"> Volver</button>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

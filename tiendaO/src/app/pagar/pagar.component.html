@@ -1,0 +1,77 @@
+<app-menu></app-menu>
+<div class="row">
+    <div class="col-75">
+      <div class="container">
+        <form>
+  
+            <div class="col-25">
+                <div class="container">
+                  <h4>Carrito
+                    <span class="price" style="color:black">
+                      <i class="fa fa-shopping-cart"></i>
+                      <b>4</b>
+                    </span>
+                  </h4>
+                  <p><a href="#">Iphone XS Max</a> <span class="price">1.200€</span></p>
+                  <p><a href="#">Iphone XS Max</a> <span class="price">1.200€</span></p>
+                  <p><a href="#">Iphone XS Max</a> <span class="price">1.200€</span></p>
+                  <p><a href="#">Iphone XS Max</a> <span class="price">1.200€</span></p>
+                  <hr>
+                  <p>Envío <span class="price"><b>10€</b></span></p>
+                  <hr>
+                  <p>Total <span class="price" style="color:black"><b>4.810€</b></span></p>
+
+                </div>
+              </div>
+
+          <div class="row">
+            <div class="col-50">
+              <h3>Dirección de envío</h3>
+              <label for="fname"><i class="fa fa-user"></i> Nombre</label>
+              <input type="text" id="fname" name="firstname" placeholder="Nombre">
+              <label for="email"><i class="fa fa-envelope"></i> Email</label>
+              <input type="text" id="email" name="email" placeholder="Email">
+              <label for="adr"><i class="fa fa-address-card-o"></i> Dirección</label>
+              <input type="text" id="adr" name="address" placeholder="Dirección">
+              <label for="city"><i class="fa fa-institution"></i> Ciudad</label>
+              <input type="text" id="city" name="city" placeholder="Ciudad">
+  
+              <div class="row">
+                <div class="col-50">
+                  <label for="state">Provincia</label>
+                  <input type="text" id="state" name="state" placeholder="Provincia">
+                </div>
+                <div class="col-50">
+                  <label for="zip">Código Postal</label>
+                  <input type="text" id="zip" name="zip" placeholder="Código Postal">
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-50">
+              <h3>Pago con Tarjeta de Crédito</h3>
+              <label for="cname">Nombre</label>
+              <input type="text" id="cname" name="cardname" placeholder="Nombre">
+              <label for="ccnum">Número de Tarjeta de Crédito</label>
+              <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            
+  
+              <div class="row">
+                <div class="col-50">
+                  <label for="expyear">Fecha de Caducidad</label>
+                  <input type="text" id="expyear" name="expyear" placeholder="01/20">
+                </div>
+                <div class="col-50">
+                  <label for="cvv">CVV</label>
+                  <input type="text" id="cvv" name="cvv" placeholder="CVV">
+                </div>
+              </div>
+            </div>
+  
+          </div>
+          <input type="submit" value="Pagar y Finalizar" class="btn">
+          <button [routerLink]="['/carrito']" class="fancy-button" > Volver</button>
+        </form>
+      </div>
+    </div>
+  </div> 

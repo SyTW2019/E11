@@ -1,0 +1,144 @@
+<mat-toolbar color="primary">
+	<mat-toolbar-row>
+		<a [routerLink]="['/']" mat-button><b>TOnline</b></a>
+
+		<span class="example-spacer"></span>
+
+		<!-- Top bar for big screen size -->
+		<div fxHide fxShow.gt-sm>
+
+			<button mat-button [matMenuTriggerFor]="bigScreenMenu">Categorías</button>
+
+			<input matInput class="example.container" placeholder="Búsqueda">
+
+			<button [matMenuTriggerFor]="cart" mat-button>
+				<mat-icon>shopping_cart</mat-icon>
+				Carrito
+			</button>
+
+			<button *ngIf="!this.loggedIn" [routerLink]="['/login']" mat-button>
+				<mat-icon>account_circle</mat-icon>
+				Iniciar sesión o registrarse
+			</button>
+
+			<button *ngIf="loggedIn" [matMenuTriggerFor]="userMenu" mat-button>
+				<mat-icon>account_circle</mat-icon>
+				{{username}}
+			</button>
+
+		</div>
+
+		<!-->Top bar for small screen size<-->
+		<div fxShow fxHide.gt-sm>
+
+			<button [matMenuTriggerFor]="cart" mat-button>
+				<mat-icon>shopping_cart</mat-icon>
+			</button>
+
+			<button mat-button [matMenuTriggerFor]="smallScreenMenu"><mat-icon>menu</mat-icon></button>
+
+			<button *ngIf="loggedIn" [matMenuTriggerFor]="userMenu" mat-button>
+				<mat-icon>account_circle</mat-icon>
+			</button>
+
+			<button *ngIf="!this.loggedIn" [routerLink]="['/login']" mat-button>
+				<mat-icon>account_circle</mat-icon>
+			</button>
+
+		</div>
+
+	</mat-toolbar-row>
+</mat-toolbar>
+
+
+<!-- Menus -->
+
+<!-- BigScreenMenu -->
+<mat-menu #bigScreenMenu="matMenu">
+	<button mat-menu-item>
+		<mat-icon>laptop</mat-icon>
+		<span>Ordenadores</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>phone_iphone</mat-icon>
+		<span>Smartphones/Telefonía</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>camera_alt</mat-icon>
+		<span>Audio/Foto/Vídeo</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>mouse</mat-icon>
+		<span>Periféricos</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>tv</mat-icon>
+		<span>Televisores</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>tablet_mac</mat-icon>
+		<span>Tablets/Ebooks</span>
+	</button>
+</mat-menu>
+
+<!-- smallScreenMenu -->
+<mat-menu #smallScreenMenu="matMenu">
+	<button mat-menu-item>
+		<mat-icon>laptop</mat-icon>
+		<span>Ordenadores</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>phone_iphone</mat-icon>
+		<span>Smartphones/Telefonía</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>camera_alt</mat-icon>
+		<span>Audio/Foto/Vídeo</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>mouse</mat-icon>
+		<span>Periféricos</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>tv</mat-icon>
+		<span>Televisores</span>
+	</button>
+	<button mat-menu-item>
+		<mat-icon>tablet_mac</mat-icon>
+		<span>Tablets/Ebooks</span>
+	</button>
+	<input matInput class="example.container" placeholder="Búsqueda">
+</mat-menu>
+
+<!-- User Menu -->
+<mat-menu #userMenu="matMenu">
+	<div fxShow fxHide.gt-sm>
+		<b>{{username}}</b>
+	</div>
+	<button [routerLink]="['/favoritos']" class="button fancy-button">
+		<i class="material-icons">favorite</i>
+		Lista de favoritos
+	</button>
+	<button [routerLink]="['/user']" class="button fancy-button">
+		<i class="material-icons">settings</i>
+		Ajustes
+	</button>
+	<div></div>
+	<button (click)="onLogOut()" class="button fancy-button">
+		<i class="material-icons">account_circle</i>
+		Log out
+	</button>
+</mat-menu>
+
+<!-- Cart  -->
+<mat-menu #cart="matMenu">
+	<ul style="list-style-type:none;" *ngFor="let shopping of shoppingItems$ | async"  >
+		{{ shopping.name }}&nbsp;
+		{{ shopping.price }} €
+	</ul>
+
+	<button [routerLink]="['/carrito']" class="button fancy-button">
+		<i class="material-icons">visibility</i>
+		Ver Carito
+	</button>
+</mat-menu>
