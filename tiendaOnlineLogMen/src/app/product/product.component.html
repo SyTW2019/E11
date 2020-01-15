@@ -33,7 +33,7 @@
 
 <h1>Mostrando todos los productos cogidos de la base de datos de Mongo</h1>
 
-<div *ngFor="let product of productos">
+<div *ngFor="let product of productos ">
 
   <h3>
     <a [title]="product.name + ' details'" [routerLink]="['product', product._id]">
@@ -48,5 +48,9 @@
 	<button (click)="cartService.addItem( product.name, product._id, product.price )">
 		<div>Añadir al carrito</div>
 		<div *ngIf="cartService.newShoppingItem && cartService.newShoppingItem.id==product._id">&nbsp;otra vez.</div>
+  </button>
+  
+  <button (click)="cartService.deleteItem(product._id)">
+		<div>Eliminar del carrito</div>
 	</button>
 </div>

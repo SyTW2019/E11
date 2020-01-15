@@ -3,12 +3,12 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ShoppingItem } from './store/models/shopping-item.model';
 import { AppState } from './store/models/app-state.model';
-import { AddItemAction } from './store/actions/shopping-actions';
+import { AddItemAction, DeleteItemAction } from './store/actions/shopping-actions';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class CartService  {
 	shoppingItems$: Observable<Array<ShoppingItem>>;
 	newShoppingItem: ShoppingItem
 
@@ -26,6 +26,10 @@ export class CartService {
 
 		this.store.dispatch(new AddItemAction( this.newShoppingItem ));
 	}
+
+	deleteItem(id: string) {
+		this.store.dispatch(new DeleteItemAction(id));
+	  }
 
 	getItems(){
 		return this.shoppingItems$
