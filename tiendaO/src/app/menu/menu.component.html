@@ -132,7 +132,7 @@
 
 <!-- Cart  -->
 <mat-menu #cart="matMenu">
-	<ul style="list-style-type:none;" *ngFor="let shopping of shoppingItems$ | async"  >
+	<ul style="list-style-type:none;" *ngFor="let shopping of shoppingItems$ | async"   (click)="cartService.deleteItem(shopping.id)" >
 		{{ shopping.name }}&nbsp;
 		{{ shopping.price }} €
 	</ul>
