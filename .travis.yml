@@ -17,14 +17,13 @@ addons:
 cache:
   directories:
   - "./tiendaO/node_modules"
-#before_install:
-#- cd tiendaOnlineLogMen
+before_install:
+- cd tiendaO
 install:
 - npm install
 notifications:
   slack: sytw:eFSSfJ93dL6SYCHkgOxiacNL
 script:
-#- git fetch --unshallow
+- git fetch --unshallow
 - sonar-scanner
-- cd tiendaO
 - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
