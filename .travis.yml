@@ -24,6 +24,7 @@ install:
 notifications:
   slack: sytw:eFSSfJ93dL6SYCHkgOxiacNL
 script:
-- git fetch --unshallow
+- cd ..
 - sonar-scanner
+- cd tiendaO
 - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
