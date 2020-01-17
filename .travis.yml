@@ -14,7 +14,7 @@ addons:
       secure: "V/4Udj9Vz18FHVSDcSzXnhTra6bzrE/IDP4yCN6RJ/M1WorA2OAzVn3tTXJY/B/OTyPnhh0WvZnUTPPSNndz7FfAFFqfLTLxdxlDEOTCdjhM1SVWlzi+K6LRZZU0oJiNuYWvvgOzfYQSXeOwYjHfxFOyRf3v7rrvmNaB6EC/f24zDKhGBgIqpqfvvXy4PkXAESdYOs41fAS84fx4EPGTTTUH/8Kbdp0OFOR+reTyBSzy9XDltx/z8cY704SKTyo+ASZBQzamPVSGfG3Za5Kr3nWaDiwwGuJ4n1T4qEyV/vVubMsTogQtj7ZOGZ/AMS2uW+zgKSGGNQ0fFR18iunHGZRStFJ2q85LgjJs5gk4uhpvfjv/cH8dyunqf9wcZrokoOplAJg5rw8Al/h0t2Qx8xyhg2YZ588aC2HkipBw0WiVZSEjOlSWfrU50Zh52FDsG5b+cu94s5zxDTIOfb8KNPYud7+QSDbELh9ar3FDxrVJyj1rT41WSkHEX1PXf7PIhLA+wTyM7+Q7Pq3OgrSrOlOJ8x7a3KACzGg9PVtAz082J1yOA8fnffy9MyscjNsyJVrCAQ3jNXMcyqmF7AHF2b+DMjU4Sp5NNTfhMT1erIvOyZttusgY3BRljZSpK8iQoLi4Hrj81oPpSkC26BMWzYXyAHRZJdj4Vwju153t4d0="
 cache:
   directories:
-  - "./tiendaOnlineLogMen/node_modules"
+  - "./tiendaO/node_modules"
 #before_install:
 #- cd tiendaOnlineLogMen
 install:
@@ -24,5 +24,5 @@ notifications:
 script:
 - cd ..
 - sonar-scanner
-- cd tiendaOnlineLogMen
+- cd tiendaO
 - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
