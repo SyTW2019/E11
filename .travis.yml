@@ -22,10 +22,10 @@ install:
 notifications:
   slack: sytw:eFSSfJ93dL6SYCHkgOxiacNL
 script:
-#- wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.1.0.1829-linux.zip
-#- unzip sonar-scanner-cli-4.1.0.1829-linux.zip
-#- export PATH="sonar-scanner-4.1.0.1829-linux/bin:$PATH"
-#- cd ..
+- wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.1.0.1829-linux.zip
+- unzip sonar-scanner-cli-4.1.0.1829-linux.zip
+- export PATH="sonar-scanner-4.1.0.1829-linux/bin:$PATH"
+- cd ..
 - sonar-scanner
-#- cd tiendaOnlineLogMen
-#- npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+- cd tiendaOnlineLogMen
+- npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
