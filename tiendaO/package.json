@@ -42,7 +42,7 @@
     "@types/karma-coverage-istanbul-reporter": "~2.1.0",
     "@types/karma-jasmine": "~0.0.31",
     "@types/mongodb": "^3.3.13",
-    "@types/node": "~8.9.4",
+    "@types/node": "^8.10.52",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -54,6 +54,6 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.4.5"
   }
 }
