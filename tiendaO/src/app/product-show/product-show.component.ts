@@ -11,8 +11,7 @@ import { CartService } from '../cart.service'
   styleUrls: ['./product-show.component.css']
 })
 export class ProductShowComponent implements OnInit {
-	product:Product
-	picture
+	product
 	id:number
 	error:String
 	loaded=false
@@ -32,7 +31,7 @@ export class ProductShowComponent implements OnInit {
 					.pipe(first())
 					.subscribe(
 						data => {
-							this.product=new Product(data.id, data.name, data.brand, data.type, data.description, data.price, data.rating, data.warranty_years, data.available)
+							this.product=data
 							this.loaded=true
 							console.log(this.product.name)
 						},

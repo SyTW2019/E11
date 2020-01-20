@@ -23,13 +23,14 @@ export class CartService {
 		}
   }
 
-	addItem( names: string, id:string, price:number) {
+	addItem( names: string, id:string, price:number, img:string) {
 
-		this.newShoppingItem = { id: '', name: '', price: 0 }
+		this.newShoppingItem = { id: '', name: '', price: 0, img:'' }
 
 		this.newShoppingItem.id = id
 		this.newShoppingItem.name = names
 		this.newShoppingItem.price = price
+		this.newShoppingItem.img = img
 		this.store.dispatch(new AddItemAction( this.newShoppingItem ))
 		this.refreshLocalStorage()
 	}

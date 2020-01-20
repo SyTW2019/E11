@@ -14,7 +14,7 @@
         </thead>
         <tbody *ngFor="let shopping of shoppingItems$ | async">
           <tr class="productitm">
-            <td><img alt="" src="https://mi0.rightinthebox.com/images/128x128/201910/xrdpst1570784914984.jpg" width="50" height="50" class="thumb"></td>
+            <td><img alt="" src={{shopping.img}} width="50" class="thumb"></td>
             <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
             <td>{{shopping.name}}</td>
             <td>{{shopping.price}}</td>

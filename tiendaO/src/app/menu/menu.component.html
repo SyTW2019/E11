@@ -115,10 +115,6 @@
 	<div fxShow fxHide.gt-sm>
 		<b>{{username}}</b>
 	</div>
-	<button [routerLink]="['/favoritos']" class="button fancy-button">
-		<i class="material-icons">favorite</i>
-		Lista de favoritos
-	</button>
 	<button [routerLink]="['/user']" class="button fancy-button">
 		<i class="material-icons">settings</i>
 		Ajustes
@@ -132,10 +128,17 @@
 
 <!-- Cart  -->
 <mat-menu #cart="matMenu">
-	<ul style="list-style-type:none;" *ngFor="let shopping of shoppingItems$ | async"   (click)="cartService.deleteItem(shopping.id)" >
-		{{ shopping.name }}&nbsp;
-		{{ shopping.price }} €
-	</ul>
+	<table summary="" id="cart">
+		<ul style="list-style-type:none;" *ngFor="let shopping of shoppingItems$ | async">
+			<tr>
+				<td><img alt="" src={{shopping.img}} width="30" class="thumb"></td>
+				<td>{{shopping.name}}</td>
+				<td>|</td>
+				<td>{{shopping.price}} €</td>
+				<td><span class="remove" (click)="cartService.deleteItem(shopping.id)"><mat-icon>cancel</mat-icon></span></td>
+			</tr>
+		</ul>
+	</table>
 
 	<button [routerLink]="['/carrito']" class="button fancy-button">
 		<em class="material-icons">visibility</em>

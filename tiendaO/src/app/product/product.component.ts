@@ -66,8 +66,9 @@ export class ProductListComponent implements OnInit {
 	  search: this.tosearch
 	     },
 	      ).toPromise().then(data => {
-	    this.busqueda = data;
+	    this.busqueda = data
 	  });
+		console.log(this.busqueda)
 	}
 
 	/*buy() {
@@ -85,8 +86,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.sendGetRequestprod().subscribe((prods: any[])=> {
-      this.productos=prods;
-      //alert(JSON.stringify(this.productos));
+      this.productos=prods
     });
   }
 

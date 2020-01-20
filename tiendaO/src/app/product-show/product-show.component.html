@@ -1,11 +1,12 @@
 <app-menu></app-menu>
 <div *ngIf="loaded">
-	<b>{{product.name}}</b>
+	<b>{{product.name}}</b><br><br>
+	<img src={{product.img}} alt="product_image" height="400">
 	<p>{{product.description}}</p>
-	<p>Precio: {{product.price}} €</p>
-	<button (click)="cartService.addItem( product.name, product.id, product.price )">
-		<div *ngIf="!cartService.newShoppingItem">Comprar</div>
-		<div *ngIf="cartService.newShoppingItem">Comprado. Comprar otra vez</div>
+	<b>Precio: {{product.price}} €</b><br><br>
+	<button (click)="cartService.addItem( product.name, product.id, product.price, product.img )">
+		<div *ngIf="!cartService.newShoppingItem">Añadir al carrito</div>
+		<div *ngIf="cartService.newShoppingItem">Añadido. Añadir otra vez</div>
 	</button>
 </div>
 

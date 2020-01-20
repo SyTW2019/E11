@@ -1,7 +1,9 @@
-<h2>Productos</h2>
+<h1>Buscar productos</h1>
 
-
-<h1>RESULTADOS DE BUSQUEDA</h1>
+<input [(ngModel)]="tosearch" type="text" >
+<button (click)="searchProducts()">
+  Buscar Productos
+</button>
 
 <div *ngFor="let product of busqueda">
 
@@ -10,28 +12,20 @@
       {{ product.name }}
     </a>
   </h3>
+	<img src={{product.img}} alt="product_image" height="100">
 
   <p *ngIf="product.description">
     Description: {{ product.description }}
   </p>
 
-	<button (click)="cartService.addItem( product.name, product._id, product.price )">
+	<button (click)="cartService.addItem( product.name, product._id, product.price, product.img)">
 		<div>Añadir al carrito</div>
 		<div *ngIf="cartService.newShoppingItem && cartService.newShoppingItem.id==product._id">&nbsp;otra vez.</div>
 	</button>
 </div>
 
-<input [(ngModel)]="tosearch" type="text" >
-<button (click)="searchProducts()">
-  Buscar Productos
-</button>
 
-
-
-<h1>Productos creados con constructor</h1>
-
-
-<h1>Mostrando todos los productos cogidos de la base de datos de Mongo</h1>
+<h1>Todos nuestros productos</h1>
 
 <div *ngFor="let product of productos">
 
@@ -40,12 +34,13 @@
       {{ product.name }}
     </a>
   </h3>
+	<img src={{product.img}} alt="product_image" height="100">
 
   <p *ngIf="product.description">
     Description: {{ product.description }}
   </p>
 
-	<button (click)="cartService.addItem( product.name, product._id, product.price )">
+	<button (click)="cartService.addItem( product.name, product._id, product.price, product.img  )">
 		<div>Añadir al carrito</div>
 		<div *ngIf="cartService.newShoppingItem && cartService.newShoppingItem.id==product._id">&nbsp;otra vez.</div>
 	</button>
