@@ -63,14 +63,5 @@ export class LoginComponent{
 					this.error = error.message;
 				this.loading = false;
 			});
-		}
-
-		viewPage = 'logIn';
-		public changePage(page){
-			console.log(page);
-			this.viewPage = page;
-		}
-
-
-
 	}
+}

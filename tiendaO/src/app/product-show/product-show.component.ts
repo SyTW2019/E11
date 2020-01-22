@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-import {Product} from '../product/product.component'
 import { Router, ActivatedRoute } from '@angular/router'
 import { map, first } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http'
@@ -12,7 +11,7 @@ import { CartService } from '../cart.service'
 })
 export class ProductShowComponent implements OnInit {
 	product
-	id:number
+	id
 	error:String
 	loaded=false
 
@@ -26,7 +25,6 @@ export class ProductShowComponent implements OnInit {
   ngOnInit() {
 		this.route.params.subscribe(params => {
 		  this.id = params['id']
-			console.log(this.id)
 			this.http.post<any>('http://10.6.129.113:8080/product', { id:this.id })
 					.pipe(first())
 					.subscribe(
@@ -41,7 +39,9 @@ export class ProductShowComponent implements OnInit {
 								console.log(this.error)}
 							else
 								this.error = error.message;
-						})
-	 	});
+						}
+					)
+		})
+
   }
 }

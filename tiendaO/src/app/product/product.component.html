@@ -8,7 +8,7 @@
 <div *ngFor="let product of busqueda">
 
   <h3>
-    <a [title]="product.name + ' details'" [routerLink]="['product', product._id]">
+    <a [title]="product.name + ' details'" [routerLink]="['/product', product._id]">
       {{ product.name }}
     </a>
   </h3>
@@ -30,7 +30,7 @@
 <div *ngFor="let product of productos">
 
   <h3>
-    <a [title]="product.name + ' details'" [routerLink]="['product', product._id]">
+    <a [title]="product.name + ' details'" [routerLink]="['/product', product._id]">
       {{ product.name }}
     </a>
   </h3>

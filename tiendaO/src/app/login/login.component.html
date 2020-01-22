@@ -1,8 +1,7 @@
-<app-menu></app-menu>
 <div class="my-form-container">
-<a [routerLink]="['/signup']" class="button fancy-button" [class.active]="viewPage=='signUp'"  (click)="changePage('signUp')">Registrarse</a>
+<a [routerLink]="['/signup']" class="button fancy-button">Registrarse</a>
 <a [routerLink]="['/']" class="button fancy-button">Volver</a>
-<div class="my-form"  *ngIf="viewPage=='logIn'" >
+<div class="my-form">
     <form [formGroup]='logInForm' (ngSubmit)="onLogIn()" >
         <div class="form-group">
             <input class='form-control'

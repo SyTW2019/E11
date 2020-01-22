@@ -22,6 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductShowComponent } from './product-show/product-show.component';
 import { MostrarCarritoComponent } from './mostrar-carrito/mostrar-carrito.component';
 import { PagarComponent } from './pagar/pagar.component';
+import { CategoryComponent } from './category/category.component';
 
 const routes: Route[] = [
   {path: '', component: HomeComponent},
@@ -29,6 +30,7 @@ const routes: Route[] = [
   { path: 'signup', component: SigninComponent},
   { path: 'user', component: PerfilUsuarioComponent},
   { path: 'product/:id', component: ProductShowComponent},
+  { path: 'category/:category', component: CategoryComponent},
   { path: 'carrito', component: MostrarCarritoComponent},
   { path: 'pago', component: PagarComponent}
 ];
@@ -46,7 +48,8 @@ const routes: Route[] = [
     HomeComponent,
     ProductShowComponent,
     MostrarCarritoComponent,
-    PagarComponent
+    PagarComponent,
+    CategoryComponent
     ],
   imports: [
     BrowserModule,

@@ -9,7 +9,9 @@
 
 			<button mat-button [matMenuTriggerFor]="bigScreenMenu">Categorías</button>
 
+			<!--
 			<input matInput class="example.container" placeholder="Búsqueda">
+			-->
 
 			<button [matMenuTriggerFor]="cart" mat-button>
 				<mat-icon>shopping_cart</mat-icon>
@@ -55,18 +57,19 @@
 
 <!-- BigScreenMenu -->
 <mat-menu #bigScreenMenu="matMenu">
-	<button mat-menu-item>
+	<button mat-menu-item [routerLink]="['category', 'laptop']">
 		<mat-icon>laptop</mat-icon>
-		<span>Ordenadores</span>
+		<span>Laptops</span>
 	</button>
-	<button mat-menu-item>
+	<button mat-menu-item [routerLink]="['category', 'smartphone']">
 		<mat-icon>phone_iphone</mat-icon>
 		<span>Smartphones/Telefonía</span>
 	</button>
-	<button mat-menu-item>
+	<button mat-menu-item [routerLink]="['category', 'media']">
 		<mat-icon>camera_alt</mat-icon>
 		<span>Audio/Foto/Vídeo</span>
 	</button>
+	<!--
 	<button mat-menu-item>
 		<mat-icon>mouse</mat-icon>
 		<span>Periféricos</span>
@@ -79,22 +82,24 @@
 		<mat-icon>tablet_mac</mat-icon>
 		<span>Tablets/Ebooks</span>
 	</button>
+	-->
 </mat-menu>
 
 <!-- smallScreenMenu -->
 <mat-menu #smallScreenMenu="matMenu">
-	<button mat-menu-item>
+	<button mat-menu-item [routerLink]="['category', 'laptop']">
 		<mat-icon>laptop</mat-icon>
-		<span>Ordenadores</span>
+		<span>Laptop</span>
 	</button>
-	<button mat-menu-item>
+	<button mat-menu-item [routerLink]="['category', 'smartphone']">
 		<mat-icon>phone_iphone</mat-icon>
 		<span>Smartphones/Telefonía</span>
 	</button>
-	<button mat-menu-item>
+	<button mat-menu-item [routerLink]="['category', 'media']">
 		<mat-icon>camera_alt</mat-icon>
 		<span>Audio/Foto/Vídeo</span>
 	</button>
+	<!--
 	<button mat-menu-item>
 		<mat-icon>mouse</mat-icon>
 		<span>Periféricos</span>
@@ -107,7 +112,10 @@
 		<mat-icon>tablet_mac</mat-icon>
 		<span>Tablets/Ebooks</span>
 	</button>
+	-->
+	<!--
 	<input matInput class="example.container" placeholder="Búsqueda">
+ 	-->
 </mat-menu>
 
 <!-- User Menu -->

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { CartService } from './cart.service'
 
 import { User } from './user/user.component';
 
@@ -11,7 +12,7 @@ export class AuthenticationService {
     public currentUser: Observable<User>;
 		response
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private cartService:CartService) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
@@ -34,6 +35,7 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser')
         this.currentUserSubject.next(null)
+				this.cartService.deleteAll()
     }
 
 		signup(firstName:string, lastName:string, email:string, password:string){

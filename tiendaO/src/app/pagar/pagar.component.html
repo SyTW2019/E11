@@ -1,9 +1,9 @@
-<app-menu></app-menu>
 <div class="row">
     <div class="col-75">
       <div class="container">
-        <form>
-  
+        <form onsubmit="order()">
+					<!-- TODO: show the real items -->
+
             <div class="col-25">
                 <div class="container">
                   <h4>Carrito
@@ -35,7 +35,7 @@
               <input type="text" id="adr" name="address" placeholder="Dirección">
               <label for="city"><em class="fa fa-institution"></em> Ciudad</label>
               <input type="text" id="city" name="city" placeholder="Ciudad">
-  
+
               <div class="row">
                 <div class="col-50">
                   <label for="state">Provincia</label>
@@ -47,15 +47,15 @@
                 </div>
               </div>
             </div>
-  
+
             <div class="col-50">
               <h3>Pago con Tarjeta de Crédito</h3>
               <label for="cname">Nombre</label>
               <input type="text" id="cname" name="cardname" placeholder="Nombre">
               <label for="ccnum">Número de Tarjeta de Crédito</label>
               <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-            
-  
+
+
               <div class="row">
                 <div class="col-50">
                   <label for="expyear">Fecha de Caducidad</label>
@@ -67,11 +67,11 @@
                 </div>
               </div>
             </div>
-  
+
           </div>
           <input type="submit" value="Pagar y Finalizar" class="btn">
           <button [routerLink]="['/carrito']" class="fancy-button" > Volver</button>
         </form>
       </div>
     </div>
-  </div> 
+  </div>

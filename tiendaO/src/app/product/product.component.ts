@@ -63,12 +63,11 @@ export class ProductListComponent implements OnInit {
 	searchProducts() {
 	  this.httpClient.post('http://10.6.129.113:8080/search',
 	     {
-	  search: this.tosearch
+	  	 	search: this.tosearch
 	     },
 	      ).toPromise().then(data => {
 	    this.busqueda = data
 	  });
-		console.log(this.busqueda)
 	}
 
 	/*buy() {

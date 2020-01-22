@@ -1,8 +1,6 @@
-<app-menu></app-menu>
-
 <div *ngIf="!success" class="my-form-container">
 
-  <a [routerLink]="['/login']" class="button fancy-button" [class.active]="viewPage=='logIn'" (click)="changePage('logIn')">Iniciar Sesión</a>
+  <a [routerLink]="['/login']" class="button fancy-button">Iniciar Sesión</a>
   <a [routerLink]="['/']" class="button fancy-button">Volver</a>
 
 	<div class="my-form">

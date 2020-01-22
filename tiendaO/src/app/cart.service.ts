@@ -45,6 +45,11 @@ export class CartService {
 		this.refreshLocalStorage()
   }
 
+	deleteAll(){
+    // remove cart from local storage
+    localStorage.removeItem('cart')
+	}
+
 	private refreshLocalStorage() {
 		this.shoppingItems$.subscribe(val => {
 			localStorage.setItem('cart', JSON.stringify(val))
