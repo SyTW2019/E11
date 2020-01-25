@@ -7,7 +7,7 @@ Grupo compuesto por:
 * Zuzanna Szalaty: alu0101049687@ull.edu.es
 * Benjamin Paddags: alu0101372617@ull.edu.es
 
-* El proyecto es una Tienda online. 
+El proyecto es una Tienda online. 
 * Las tecnologías utilizadas son: Arquitectura MEAN, Angular, Sonar Cloud.
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=SyTW2019_E11)
