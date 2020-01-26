@@ -3,7 +3,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PagarComponent } from './pagar.component';
 
 describe('PagarComponent', () => {
-  let component: PagarComponent;
   let fixture: ComponentFixture<PagarComponent>;
 
   beforeEach(async(() => {
@@ -15,11 +14,6 @@ describe('PagarComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PagarComponent);
-    component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  /*it('should create', () => {
-    //expect(component).toBeTruthy();
-  });*/
 });
