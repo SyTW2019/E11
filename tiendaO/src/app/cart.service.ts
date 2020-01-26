@@ -12,6 +12,7 @@ export class CartService {
 	shoppingItems$: Observable<Array<ShoppingItem>>
 	newShoppingItem: ShoppingItem
 	shoppingItemsLocalStorage
+	shipping=9.99
 
   constructor(private store: Store<AppState>) {
 		this.shoppingItems$ = this.store.select(store => store.shopping)
@@ -21,6 +22,7 @@ export class CartService {
 				this.store.dispatch(new AddItemAction( element ))
 			})
 		}
+		this.observeLocalStorage()
   }
 
 	addItem( names: string, id:string, price:number, img:string) {
@@ -32,28 +34,51 @@ export class CartService {
 		this.newShoppingItem.price = price
 		this.newShoppingItem.img = img
 		this.store.dispatch(new AddItemAction( this.newShoppingItem ))
-		this.refreshLocalStorage()
 	}
 
 	getItems(){
 		return this.shoppingItems$
 	}
 
+	getItemIds(){
+		var items:String[]=[]
+		this.shoppingItems$.subscribe(data => {
+			data.forEach(element => {
+				items.push(element.id)
+			})
+		})
+		return items
+	}
+
 	deleteItem(id: string) {
  		this.store.dispatch(new DeleteItemAction(id))
-		localStorage.removeItem('cart')
-		this.refreshLocalStorage()
   }
 
 	deleteAll(){
     // remove cart from local storage
     localStorage.removeItem('cart')
+		this.shoppingItems$.subscribe(data => {
+			data.forEach(element => {
+				this.store.dispatch(new DeleteItemAction(element.id))
+			})
+		}).unsubscribe() //immediately unsubscribe to avoid that the subscription keeps clearing the cart
 	}
 
-	private refreshLocalStorage() {
+	private observeLocalStorage() { //updates localStorage when shoppingItems change
 		this.shoppingItems$.subscribe(val => {
+			localStorage.removeItem('cart')
 			localStorage.setItem('cart', JSON.stringify(val))
 		})
+	}
+
+	totalprice() :number {
+		var total:number = this.shipping
+		this.shoppingItems$.subscribe(data => {
+			data.forEach(element => {
+				total+= +element.price
+			})
+		})
+		return total
 	}
 
 }

@@ -8,6 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router'
   styleUrls: ['./perfil-usuario.component.css']
 })
 export class PerfilUsuarioComponent implements OnInit {
+	user
 
   constructor(
 		private authenticationService:AuthenticationService,
@@ -17,6 +18,9 @@ export class PerfilUsuarioComponent implements OnInit {
 			// redirect to login if not logged in
 			if (! this.authenticationService.currentUserValue) {
 					this.router.navigate(['/login']);
+			} else {
+				this.user=this.authenticationService.currentUserValue
+				console.log(JSON.stringify(this.user))
 			}
 	}
 

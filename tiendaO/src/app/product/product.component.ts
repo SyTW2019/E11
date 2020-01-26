@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { CartService } from '../cart.service';
+import { FormGroup,FormControl, Validators} from '@angular/forms'
 
 export class Product {
   id: string;
@@ -43,7 +44,7 @@ export class ProductListComponent implements OnInit {
 
   productos;
   busqueda;
-  tosearch;
+	searchForm
 
 	constructor(private httpClient: HttpClient, private cartService:CartService) {}
 
@@ -63,30 +64,20 @@ export class ProductListComponent implements OnInit {
 	searchProducts() {
 	  this.httpClient.post('http://10.6.129.113:8080/search',
 	     {
-	  	 	search: this.tosearch
+	  	 	search: this.searchForm.get('search').value
 	     },
 	      ).toPromise().then(data => {
 	    this.busqueda = data
 	  });
 	}
 
-	/*buy() {
-
-	//PARA ACCEDER UTILIZAR data[POSICION DEL ELEMENTO EN LA LISTA].DATO_QUE_SE_QUIERE_OBTENER
-
-	  //this.sendGetRequestprod().subscribe((data: any[])=> {
-	   // alert(JSON.stringify();
-	    this.createArticle();
-	    //AQUI EL PRIMERO ELEMENTO ES USUARIO AKSHAY Y OBTENGO EL NOMBRE DE AHI
-	 // });
-
-	}*/
-
-
   ngOnInit(): void {
     this.sendGetRequestprod().subscribe((prods: any[])=> {
       this.productos=prods
-    });
+    })
+		this.searchForm = new FormGroup({
+				search: new FormControl('',[Validators.required])
+		})
   }
 
 }

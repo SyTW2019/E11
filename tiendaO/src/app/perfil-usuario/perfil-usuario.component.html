@@ -10,7 +10,7 @@
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h3>
-                                        Steve Jobs
+                                        {{user.firstName}}
                                     </h3>
                         </div>
                     </div>
@@ -24,7 +24,6 @@
                             <a href="">Editar datos dirección</a><br/>
                             <p>HISOTRIAL</p>
                             <a href="">Mis pedidos</a><br/>
-                            <a href="">Lista de favoritos</a><br/>
                         </div>
                     </div>
                     <div class="col-md-8">
@@ -35,7 +34,7 @@
                                                 <label>Número de cliente:</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>1234567</p>
+                                                <p>{{user.id}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -43,7 +42,7 @@
                                                 <label>Nombre:</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Steve Jobs</p>
+                                                <p>{{user.firstName}} {{user.lastName}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -51,7 +50,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>stevejobs@gmail.com</p>
+                                                <p>{{user.email}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -62,34 +61,29 @@
                                                 <p>**************</p>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" *ngIf="this.user.phone">
                                             <div class="col-md-6">
                                                 <label>Número de teléfono</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>999 111 222</p>
+                                                <p>{{user.phone}}</p>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label></label>
-                                            </div>
-                                        </div>
+																			<div *ngIf="this.user.direction">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Dirección:</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>C. Comercial Lorem, 35 15ºG</p>
+                                                <p>{{user.address[0]}}</p>
                                             </div>
                                         </div>
-
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Provincia:</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Barcelona</p>
+                                                <p>{{user.address[1]}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -97,7 +91,7 @@
                                                 <label>Ciudad:</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Sidges</p>
+                                                <p>{{user.address[2]}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -105,9 +99,10 @@
                                                 <label>Código Postal:</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>12345</p>
+                                                <p>{{user.address[3]}}</p>
                                             </div>
                                         </div>
+																			</div>
                             </div>
 
                         </div>

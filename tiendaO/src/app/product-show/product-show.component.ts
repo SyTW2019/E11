@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Router, ActivatedRoute } from '@angular/router'
-import { map, first } from 'rxjs/operators'
+import { first } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http'
 import { CartService } from '../cart.service'
 

@@ -1,9 +1,8 @@
 <h1>Buscar productos</h1>
 
-<input [(ngModel)]="tosearch" type="text" >
-<button (click)="searchProducts()">
-  Buscar Productos
-</button>
+<form [formGroup]='searchForm' (ngSubmit)="searchProducts()">
+	<input type="text" formControlName='search'>
+	<input type="submit" class="btn" value="Buscar">
 
 <div *ngFor="let product of busqueda">
 
@@ -24,6 +23,7 @@
 	</button>
 </div>
 
+<hr>
 
 <h1>Todos nuestros productos</h1>
 
