@@ -101,22 +101,24 @@
 
 	<!-- Cart  -->
 	<mat-menu #cart="matMenu">
-		<table id="cart">
-			<tr>
-				<th scope="col">Imagen</th>
-		    <th scope="col">Producto</th>
-				<th scope="col">Precio</th>
-		  </tr>
-				<tr *ngFor="let shopping of shoppingItems$ | async">
-					<td colspan="1"><img alt="" src={{shopping.img}} width="30" class="thumb"></td>
-					<td colspan="1">{{shopping.name}}</td>
-					<td colspan="1">{{shopping.price}} €</td>
-					<td colspan="1"><span class="remove" (click)="cartService.deleteItem(shopping.id)"><mat-icon>cancel</mat-icon></span></td>
+		<div *ngIf="!empty">
+			<table id="cart">
+				<tr>
+					<th scope="col">Imagen</th>
+					<th scope="col">Producto</th>
+					<th scope="col">Precio</th>
 				</tr>
-		</table>
-
-		<button [routerLink]="['/carrito']" class="button fancy-button">
-			<em class="material-icons">visibility</em>
-			Ver Carito
-		</button>
+					<tr *ngFor="let shopping of shoppingItems$ | async">
+						<td colspan="1"><img alt="" src={{shopping.img}} width="30" class="thumb"></td>
+						<td colspan="1">{{shopping.name}}</td>
+						<td colspan="1">{{shopping.price}} €</td>
+						<td colspan="1"><span class="remove" (click)="cartService.deleteItem(shopping.id)"><mat-icon>cancel</mat-icon></span></td>
+					</tr>
+			</table>
+			<button [routerLink]="['/carrito']" class="button fancy-button">
+				<em class="material-icons">visibility</em>
+				Ver Carito
+			</button>
+		</div>
+		<p *ngIf="empty">El carrito está vacío</p>
 	</mat-menu>

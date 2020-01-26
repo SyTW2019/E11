@@ -14,6 +14,7 @@ export class MenuComponent implements OnInit {
 	loggedIn=false
 	username=''
 	shoppingItems$: Observable<Array<ShoppingItem>>
+	empty=true
   constructor(
 		private authenticationService:AuthenticationService,
 		private route: ActivatedRoute,
@@ -30,6 +31,12 @@ export class MenuComponent implements OnInit {
 		})
 
 		this.shoppingItems$=this.cartService.getItems();
+		this.shoppingItems$.subscribe(items => {
+			if (items.length>0)
+				this.empty=false
+			else
+				this.empty=true
+		})
   }
 
 	onLogOut(){
