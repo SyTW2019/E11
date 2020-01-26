@@ -11,7 +11,7 @@ import { CartService } from '../cart.service'
 export class ProductShowComponent implements OnInit {
 	product
 	id
-	error:String
+	error:string
 	loaded=false
 
 
