@@ -8,6 +8,7 @@ Grupo compuesto por:
 * Benjamin Paddags: alu0101372617@ull.edu.es
 
 El proyecto es una Tienda online. 
-* Las tecnologías utilizadas son: Arquitectura MEAN, Angular, Pivotal Tracker, Slack, MongoDB, Sonar Cloud.
+* Las tecnologías para el desarrollo: Arquitectura MEAN, Angular, Pivotal Tracker, MongoDB, FLUX.
+* Las herramientas utilizadas: Slack, Sonar Cloud, Travis.
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=SyTW2019_E11)
