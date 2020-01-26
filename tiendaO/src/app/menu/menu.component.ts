@@ -18,7 +18,7 @@ export class MenuComponent implements OnInit {
 		private authenticationService:AuthenticationService,
 		private route: ActivatedRoute,
 		private router: Router,
-		private cartService:CartService
+		public cartService:CartService
 	) { }
 
   ngOnInit() {

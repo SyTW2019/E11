@@ -45,7 +45,7 @@ export class ProductListComponent implements OnInit {
   busqueda;
   tosearch;
 
-	constructor(private httpClient: HttpClient, private cartService:CartService) {}
+	constructor(private httpClient: HttpClient, public cartService:CartService) {}
 
 
 	configUrl = 'http://10.6.129.113:8080/users' ;

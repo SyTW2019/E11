@@ -16,7 +16,7 @@ export class CategoryComponent implements OnInit {
   constructor(
 		private route: ActivatedRoute,
 		private http: HttpClient,
-		private cartService:CartService
+		public cartService:CartService
 	) { }
 
   ngOnInit() {

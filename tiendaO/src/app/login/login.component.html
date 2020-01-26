@@ -8,7 +8,7 @@
                   type="text"
                   formControlName='logEmail'
                   placeholder="Escriba el correo electrónico"
-									[ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+									>
           </div>
           <div *ngIf="logEmail.touched && logEmail.invalid" class="invalid-feedback">
 
@@ -24,7 +24,7 @@
                     type="password"
                     formControlName='logPassword'
                     placeholder="Escriba la contraseña"
-										[ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+									>
             </div>
             <div *ngIf="logPassword.touched && logPassword.invalid" class="invalid-feedback">
 

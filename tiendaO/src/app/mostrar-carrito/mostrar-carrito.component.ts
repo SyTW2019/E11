@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class MostrarCarritoComponent implements OnInit {
   shoppingItems$: Observable<Array<ShoppingItem>>
 	constructor(
-		private cartService:CartService
+		public cartService:CartService
 	) { }
 
 
