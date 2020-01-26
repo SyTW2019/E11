@@ -52,6 +52,6 @@ export class PagarComponent implements OnInit {
   // return an observable with a user-facing error message
   return throwError(
     'No se ha podido procesar el pedido, lo sentimos.');
-};
+	}
 
 }

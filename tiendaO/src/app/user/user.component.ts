@@ -22,8 +22,7 @@ export class User{
 }
 @Component({
 	selector: 'app-user',
-	templateUrl: './user.component.html',
-	styleUrls: ['./user.component.css']
+	templateUrl: './user.component.html'
 })
 
 export class UserListComponent implements OnInit {

@@ -32,8 +32,7 @@ export class Product {
 
 @Component({
   selector: 'app-product-list',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  templateUrl: './product.component.html'
 })
 
 @Injectable({

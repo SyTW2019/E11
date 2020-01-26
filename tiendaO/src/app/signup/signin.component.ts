@@ -6,8 +6,7 @@ import { first } from 'rxjs/operators'
 
 @Component({
   selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  templateUrl: './signin.component.html'
 })
 export class SigninComponent implements OnInit{
 

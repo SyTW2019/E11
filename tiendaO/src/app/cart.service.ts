@@ -15,7 +15,7 @@ export class CartService {
 	shipping=9.99
 
   constructor(private store: Store<AppState>) {
-		this.shoppingItems$ = this.store.select(store => store.shopping)
+		this.shoppingItems$ = this.store.select(stored => stored.shopping)
 		if (localStorage.getItem('cart')!=null && localStorage.getItem('cart')!="") {
 			this.shoppingItemsLocalStorage=JSON.parse(localStorage.getItem('cart'))
 			this.shoppingItemsLocalStorage.forEach(element => {
@@ -41,7 +41,7 @@ export class CartService {
 	}
 
 	getItemIds(){
-		var items:String[]=[]
+		var items:string[]=[]
 		this.shoppingItems$.subscribe(data => {
 			data.forEach(element => {
 				items.push(element.id)
