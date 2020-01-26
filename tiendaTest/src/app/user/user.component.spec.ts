@@ -28,6 +28,12 @@ describe('UserListComponent', () => {
     const user = fixture.debugElement.componentInstance;
     expect(user.id).toEqual(user.id);
   });
+  
+  it(`should have an email`, () => {
+    const fixture = TestBed.createComponent(UserListComponent);
+    const user = fixture.debugElement.componentInstance;
+    expect(user.email).toEqual(user.email);
+  });
 
   it(`should have an Firs Name`, () => {
     const fixture = TestBed.createComponent(UserListComponent);
