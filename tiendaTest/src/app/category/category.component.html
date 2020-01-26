@@ -1,0 +1,19 @@
+<h1>Nuestros productos de la categoría {{category}}</h1>
+<div *ngFor="let product of products">
+
+  <h3>
+    <a [title]="product.name + ' details'" [routerLink]="['/product', product._id]">
+      {{ product.name }}
+    </a>
+  </h3>
+	<img src={{product.img}} alt="product_image" height="100">
+
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>
+
+	<button (click)="cartService.addItem( product.name, product._id, product.price, product.img)">
+		<div>Añadir al carrito</div>
+		<div *ngIf="cartService.newShoppingItem && cartService.newShoppingItem.id==product._id">&nbsp;otra vez.</div>
+	</button>
+</div>

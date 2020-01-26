@@ -1,0 +1,12 @@
+<div *ngIf="loaded">
+	<strong>{{product.name}}</strong><br><br>
+	<img src={{product.img}} alt="product_image" height="400">
+	<p>{{product.description}}</p>
+	<strong>Precio: {{product.price}} €</strong><br><br>
+	<button (click)="cartService.addItem( product.name, product.id, product.price, product.img )">
+		<div *ngIf="!cartService.newShoppingItem">Añadir al carrito</div>
+		<div *ngIf="cartService.newShoppingItem">Añadido. Añadir otra vez</div>
+	</button>
+</div>
+
+<strong *ngIf="error">Hubo un error cargando el producto: {{error}}</strong>

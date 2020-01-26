@@ -1,0 +1,107 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body,
+html {
+  margin: 0 auto;
+}
+
+
+/* Text */
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h1, h2 {
+  font-weight: lighter;
+}
+
+p {
+  font-size: 14px;
+}
+
+/* Hyperlink */
+
+
+input {
+  font-size: 14px;
+  border-radius: 2px;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #BDBDBD;
+}
+
+label {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  display: block;
+  text-transform: uppercase;
+}
+/* Button */
+.button, button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 2px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+}
+
+.button:hover, button:hover {
+  opacity: 0.8;
+  font-weight: normal;
+}
+
+.button:disabled, button:disabled {
+  opacity: 0.5;
+  cursor: auto;
+}
+
+ /* Fancy Button */
+
+ .fancy-button {
+  background-color: white;
+  color: #1976d2;
+}
+
+.blue-button {
+  background-color: #1976d2;
+  color: white ;
+}
+
+.fancy-button i.material-icons {
+  color: #1976d2;
+  padding-right: 10px;
+}
+
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+  .nav-link {
+    border: 2px #007bff solid;}
+.my-form-container{
+    width: 80%;
+    margin: 30px auto;
+}
+.my-form{
+width: 90%;
+margin: 30px auto;
+padding: 10px;
+border: 2px #007bff solid;
+border-top: #fff;
+border-radius: 5px;
+}

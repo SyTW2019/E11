@@ -1,0 +1,122 @@
+<mat-toolbar color="primary">
+	<mat-toolbar-row>
+		<a [routerLink]="['/']" mat-button><b>TOnline</b></a>
+
+		<span class="example-spacer"></span>
+
+		<!-- Top bar for big screen size -->
+		<div fxHide fxShow.gt-sm>
+
+			<button mat-button [matMenuTriggerFor]="bigScreenMenu">Categorías</button>
+
+			<button [matMenuTriggerFor]="cart" mat-button>
+				<mat-icon>shopping_cart</mat-icon>
+				Carrito
+			</button>
+
+			<button *ngIf="!this.loggedIn" [routerLink]="['/login']" mat-button>
+				<mat-icon>account_circle</mat-icon>
+				Iniciar sesión o registrarse
+			</button>
+
+			<button *ngIf="loggedIn" [matMenuTriggerFor]="userMenu" mat-button>
+				<mat-icon>account_circle</mat-icon>
+				{{username}}
+			</button>
+
+		</div>
+
+		<!-->Top bar for small screen size<-->
+		<div fxShow fxHide.gt-sm>
+
+			<button [matMenuTriggerFor]="cart" mat-button>
+				<mat-icon>shopping_cart</mat-icon>
+			</button>
+
+			<button mat-button [matMenuTriggerFor]="smallScreenMenu"><mat-icon>menu</mat-icon></button>
+
+			<button *ngIf="loggedIn" [matMenuTriggerFor]="userMenu" mat-button>
+				<mat-icon>account_circle</mat-icon>
+			</button>
+
+			<button *ngIf="!this.loggedIn" [routerLink]="['/login']" mat-button>
+				<mat-icon>account_circle</mat-icon>
+			</button>
+
+		</div>
+
+	</mat-toolbar-row>
+</mat-toolbar>
+
+
+<!-- Menus -->
+
+	<!-- BigScreenMenu -->
+	<mat-menu #bigScreenMenu="matMenu">
+		<button mat-menu-item [routerLink]="['category', 'laptop']">
+			<mat-icon>laptop</mat-icon>
+			<span>Laptops</span>
+		</button>
+		<button mat-menu-item [routerLink]="['category', 'smartphone']">
+			<mat-icon>phone_iphone</mat-icon>
+			<span>Smartphones/Telefonía</span>
+		</button>
+		<button mat-menu-item [routerLink]="['category', 'media']">
+			<mat-icon>camera_alt</mat-icon>
+			<span>Audio/Foto/Vídeo</span>
+		</button>
+	</mat-menu>
+
+	<!-- smallScreenMenu -->
+	<mat-menu #smallScreenMenu="matMenu">
+		<button mat-menu-item [routerLink]="['category', 'laptop']">
+			<mat-icon>laptop</mat-icon>
+			<span>Laptop</span>
+		</button>
+		<button mat-menu-item [routerLink]="['category', 'smartphone']">
+			<mat-icon>phone_iphone</mat-icon>
+			<span>Smartphones/Telefonía</span>
+		</button>
+		<button mat-menu-item [routerLink]="['category', 'media']">
+			<mat-icon>camera_alt</mat-icon>
+			<span>Audio/Foto/Vídeo</span>
+		</button>
+	</mat-menu>
+
+	<!-- User Menu -->
+	<mat-menu #userMenu="matMenu">
+		<div fxShow fxHide.gt-sm>
+			<b>{{username}}</b>
+		</div>
+		<button [routerLink]="['/user']" class="button fancy-button">
+			<em class="material-icons">settings</em>
+			Ajustes
+		</button>
+		<div></div>
+		<button (click)="onLogOut()" class="button fancy-button">
+			<em class="material-icons">account_circle</em>
+			Log out
+		</button>
+	</mat-menu>
+
+	<!-- Cart  -->
+	<mat-menu #cart="matMenu">
+		<table id="cart">
+			<tr>
+				<th scope="col">Imagen</th>
+		    <th scope="col">Producto</th>
+				<th scope="col">Precio</th>
+		  </tr>
+				<tr *ngFor="let shopping of shoppingItems$ | async">
+					<td colspan="1"><img alt="" src={{shopping.img}} width="30" class="thumb"></td>
+					<td colspan="1">{{shopping.name}}</td>
+					<td colspan="1">{{shopping.price}} €</td>
+					<td colspan="1"><span class="remove" (click)="cartService.deleteItem(shopping.id)"><mat-icon>cancel</mat-icon></span></td>
+				</tr>
+		</table>
+
+		<button [routerLink]="['/carrito']" class="button fancy-button">
+			<em class="material-icons">visibility</em>
+			Ver Carito
+		</button>
+	</mat-menu>

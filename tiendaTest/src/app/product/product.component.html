@@ -1,0 +1,47 @@
+<h1>Buscar productos</h1>
+
+<form [formGroup]='searchForm' (ngSubmit)="searchProducts()">
+	<input type="text" formControlName='search'>
+	<input type="submit" class="btn" value="Buscar">
+
+<div *ngFor="let product of busqueda">
+
+  <h3>
+    <a [title]="product.name + ' details'" [routerLink]="['/product', product._id]">
+      {{ product.name }}
+    </a>
+  </h3>
+	<img src={{product.img}} alt="product_image" height="100">
+
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>
+
+	<button (click)="cartService.addItem( product.name, product._id, product.price, product.img)">
+		<div>Añadir al carrito</div>
+		<div *ngIf="cartService.newShoppingItem && cartService.newShoppingItem.id==product._id">&nbsp;otra vez.</div>
+	</button>
+</div>
+
+<hr>
+
+<h1>Todos nuestros productos</h1>
+
+<div *ngFor="let product of productos">
+
+  <h3>
+    <a [title]="product.name + ' details'" [routerLink]="['/product', product._id]">
+      {{ product.name }}
+    </a>
+  </h3>
+	<img src={{product.img}} alt="product_image" height="100">
+
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>
+
+	<button (click)="cartService.addItem( product.name, product._id, product.price, product.img  )">
+		<div>Añadir al carrito</div>
+		<div *ngIf="cartService.newShoppingItem && cartService.newShoppingItem.id==product._id">&nbsp;otra vez.</div>
+	</button>
+</div>

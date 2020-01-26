@@ -1,0 +1,112 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="http://img.freepik.com/iconos-gratis/usuario-masculino-foto-de-perfil_318-37825.jpg?size=338&ext=jpg" alt=""/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h3>
+                                        {{user.firstName}}
+                                    </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+
+                            <p>CUENTA</p>
+                            <a href="">Editar datos perfil</a><br/>
+                            <a href="">Editar datos dirección</a><br/>
+                            <p>HISOTRIAL</p>
+                            <a href="">Mis pedidos</a><br/>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Número de cliente:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{user.id}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Nombre:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{user.firstName}} {{user.lastName}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{user.email}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Contraseña:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>**************</p>
+                                            </div>
+                                        </div>
+                                        <div class="row" *ngIf="this.user.phone">
+                                            <div class="col-md-6">
+                                                <label>Número de teléfono</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{user.phone}}</p>
+                                            </div>
+                                        </div>
+																			<div *ngIf="this.user.direction">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Dirección:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{user.address[0]}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Provincia:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{user.address[1]}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Ciudad:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{user.address[2]}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Código Postal:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{user.address[3]}}</p>
+                                            </div>
+                                        </div>
+																			</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
